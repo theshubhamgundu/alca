@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 const heroSlides = [
   {
     id: 1,
-    src: 'https://res.cloudinary.com/bzykgznp/image/upload/v1786390164/julina_candles/banners/rs6rik4jqjtcuui39pml.png',
+    src: 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product',
     link: '/products',
   },
   {
     id: 2,
-    src: 'https://res.cloudinary.com/bzykgznp/image/upload/v1786390168/julina_candles/banners/nsfdae32uf5wreongyhi.png',
+    src: 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product',
     link: '/products',
   },
   {
     id: 3,
-    src: 'https://res.cloudinary.com/bzykgznp/image/upload/v1786390175/julina_candles/banners/x8cnldatj2wep0hloffn.png',
+    src: 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product',
     link: '/products',
   },
 ];
@@ -51,7 +51,7 @@ const FeaturedSection: React.FC = () => {
         <Link to={heroSlides[currentIndex].link} className="block w-full overflow-hidden">
           <img
             src={heroSlides[currentIndex].src}
-            alt={`Julina Banner ${currentIndex + 1}`}
+            alt={`ALCA Banner ${currentIndex + 1}`}
             className="w-full h-auto object-contain max-h-[75vh] mx-auto block transition-all duration-700 ease-in-out"
           />
         </Link>

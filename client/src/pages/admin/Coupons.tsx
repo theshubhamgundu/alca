@@ -27,7 +27,7 @@ const AdminCoupons: React.FC = () => {
   const coupons = useMemo(() => data?.coupons || [], [data]);
 
   const generateRandomCode = () => {
-    const prefixes = ['JULINA', 'FESTIVE', 'SPECIAL', 'SPARKLE', 'CANDLE'];
+    const prefixes = ['ALCA', 'FESTIVE', 'SPECIAL', 'SPARKLE', 'product'];
     const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
     const randomNum = Math.floor(10 + Math.random() * 90);
     setCode(`${randomPrefix}${randomNum}`);

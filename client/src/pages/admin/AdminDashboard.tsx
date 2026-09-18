@@ -171,10 +171,10 @@ const AdminDashboard: React.FC = () => {
             <span>🕯️ Store Operations Overview</span>
           </div>
           <h1 className="text-2xl md:text-3xl font-serif font-bold text-white tracking-wide">
-            Julina Candles Portal
+            ALCA Portal
           </h1>
           <p className="text-xs text-gray-300">
-            Monitor real-time sales trends, manage candle inventories, and fulfill customer orders.
+            Monitor real-time sales trends, manage product inventories, and fulfill customer orders.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ const AdminDashboard: React.FC = () => {
         <Widget 
           heading="Total Products" 
           value={(productsData?.products?.length || stats?.totalProducts || 0).toLocaleString('en-IN')} 
-          description="Candles in catalog" 
+          description="products in catalog" 
           icon={<FaBoxes className="text-lg" />}
           accentClass="bg-emerald-50 text-emerald-700"
         />
@@ -251,7 +251,7 @@ const AdminDashboard: React.FC = () => {
                   Low Stock Alert ({lowStockProducts.length} items need restock)
                 </h3>
                 <p className="text-xs text-amber-700 mt-0.5">
-                  Some of your handcrafted candle collections are running low (&lt; 10 units).
+                  Some of your handcrafted product collections are running low (&lt; 10 units).
                 </p>
               </div>
             </div>

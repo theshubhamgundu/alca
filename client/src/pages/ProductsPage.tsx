@@ -25,8 +25,8 @@ const ProductsPage: React.FC = () => {
     }, [location.search]);
 
     usePageSEO({
-        title: 'Shop Luxury Handcrafted Candles | Julina Candles & Melts',
-        description: 'Shop our luxury hand-poured soy wax candles, urli candles, glass jar candles, and festive gift sets.',
+        title: 'Shop Luxury Handcrafted products | ALCA',
+        description: 'Shop our luxury hand-crafted high-quality products, premium products, glass jar products, and festive gift sets.',
         canonical: '/products',
     });
 
@@ -40,11 +40,11 @@ const ProductsPage: React.FC = () => {
     });
 
     const categoriesList = categoriesData?.categories || [
-        'Festive Urli Candles',
-        'Wooden Dough Bowl Candles',
-        'Mithai Candles',
-        'Floral Candles',
-        'Glass Jar Candles',
+        'Festive premium products',
+        'Wooden Dough Bowl products',
+        'Mithai products',
+        'Floral products',
+        'Glass Jar products',
         'Fragrances',
     ];
 
@@ -65,13 +65,13 @@ const ProductsPage: React.FC = () => {
                 {/* Top Wide Banner */}
                 <div className="w-full h-36 sm:h-44 rounded-2xl overflow-hidden relative shadow-sm border border-[#E6DACB]">
                   <img 
-                    src="https://res.cloudinary.com/bzykgznp/image/upload/v1786389862/julina_candles/products/peacock_pink_wax_urli.png"
-                    alt="Shop Candle Banner"
+                    src="https://placehold.co/600x600/185e33/FFF?text=ALCA+Product"
+                    alt="Shop product Banner"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
                     <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-wider">
-                      Shop Candles & Melts
+                      Shop products & services
                     </h1>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const ProductsPage: React.FC = () => {
                                       selectedCategory === '' ? 'text-[#5C2333] font-bold' : 'text-gray-600 hover:text-[#5C2333]'
                                   }`}
                                 >
-                                  <span>All Candles</span>
+                                  <span>All products</span>
                                 </li>
 
                                 {categoriesList.map((catName) => (

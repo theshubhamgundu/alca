@@ -66,7 +66,7 @@ const AdminLogin: React.FC = () => {
             <FaLock className="text-white text-3xl" />
           </div>
           <h1 className="text-3xl font-serif font-bold text-[#1f5133] mb-2">Admin Portal</h1>
-          <p className="text-sm text-gray-600">Julina Candles & Melts Management System</p>
+          <p className="text-sm text-gray-600">ALCA Management System</p>
         </div>
 
         {/* Login Card */}
@@ -87,7 +87,7 @@ const AdminLogin: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1f5133] focus:border-transparent outline-none transition"
-                  placeholder="admin@julinacandles.in"
+                  placeholder="admin@alca.in"
                   required
                   autoComplete="email"
                 />

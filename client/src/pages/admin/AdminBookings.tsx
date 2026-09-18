@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { useGetAllBookingsQuery, useUpdateBookingStatusMutation } from '../../redux/api/booking.api';
-import { FaCalendarAlt, FaCheck, FaTimes, FaUsers } from 'react-icons/fa';
+import { FaCalendarAlt, FaUsers } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';
 

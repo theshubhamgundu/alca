@@ -5,7 +5,7 @@ import { FaBars, FaLock } from 'react-icons/fa';
 import { usePageSEO } from '../../hooks/usePageSEO';
 
 // ─── Admin password (client-side gate) ───────────────────────────────────────
-const ADMIN_PASSWORD = 'julinacandles@2026';
+const ADMIN_PASSWORD = 'ALCAproducts@2026';
 const SESSION_KEY = 'vh_admin_auth';
 
 // ─── Password Gate ────────────────────────────────────────────────────────────
@@ -24,7 +24,7 @@ const AdminLoginGate: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input === ADMIN_PASSWORD || input === 'julinacandles@Admin2026') {
+    if (input === ADMIN_PASSWORD || input === 'ALCAproducts@Admin2026') {
       sessionStorage.setItem(SESSION_KEY, '1');
       // For local/dev convenience: set a temporary admin token so API-protected admin
       // endpoints (which expect a 128-hex token) accept actions. This is only a
@@ -56,7 +56,7 @@ const AdminLoginGate: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
           <div className="w-14 h-14 rounded-full bg-[#185e33] flex items-center justify-center mb-4 shadow-md">
             <FaLock className="text-white text-xl" />
           </div>
-          <img src="https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png" alt="Julina Candles & Melts" className="h-8 w-auto mb-3" />
+          <img src="https://placehold.co/600x600/185e33/FFF?text=ALCA+Product" alt="ALCA" className="h-8 w-auto mb-3" />
           <h1 className="text-xl font-serif font-bold text-[#185e33]">Admin Access</h1>
           <p className="text-xs text-gray-500 mt-1 text-center">
             Enter the admin password to access the dashboard.
@@ -117,8 +117,8 @@ const AdminLoginGate: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
 // ─── Admin Layout ─────────────────────────────────────────────────────────────
 const AdminLayout: React.FC = () => {
   usePageSEO({
-    title: 'Admin Dashboard | Julina Candles & Melts',
-    description: 'Admin Portal for Julina Candles & Melts',
+    title: 'Admin Dashboard | ALCA',
+    description: 'Admin Portal for ALCA',
     canonical: '/admin',
     noIndex: true,
   });

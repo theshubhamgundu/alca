@@ -72,7 +72,7 @@ function verifyRazorpaySignature(orderId, paymentId, signature) {
 // Resend Email API Configuration
 const RESEND_CONFIG = {
   get KEY() { return process.env.RESEND_API_KEY || ''; },
-  get FROM() { return process.env.RESEND_FROM_EMAIL || 'Julina Candles & Melts <sales@julinacandles.in>'; }
+  get FROM() { return process.env.RESEND_FROM_EMAIL || 'ALCA <sales@ALCAproducts.in>'; }
 };
 
 // Send email using Resend REST API
@@ -154,7 +154,7 @@ async function handleOrderSuccess(orderId) {
     const recipientEmail = userRow?.email || shippingInfo?.email;
     const customerName = userRow?.name || shippingInfo?.name || 'Customer';
 
-    const baseUrl = 'https://julinacandles.in';
+    const baseUrl = 'https://ALCAproducts.in';
 
     const orderItems = typeof order.order_items === 'string' ? JSON.parse(order.order_items) : order.order_items;
     const itemsListHtml = (orderItems || []).map(item => `
@@ -181,14 +181,14 @@ async function handleOrderSuccess(orderId) {
           
           <!-- Header Logo -->
           <div style="text-align: center; margin-bottom: 30px; border-bottom: 1px solid #efe9db; padding-bottom: 20px;">
-            <h1 style="color: #5C2333; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">Julina Candles & Melts</h1>
+            <h1 style="color: #5C2333; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">ALCA</h1>
             <span style="font-size: 10px; color: #C79A56; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; display: block; margin-top: 5px;">Handcrafted Luxury & Essential Oils</span>
           </div>
 
           <!-- Greeting -->
           <h2 style="color: #5C2333; font-size: 20px; font-family: Garamond, serif; margin-top: 0; font-weight: bold;">Order Confirmed! 🕯️</h2>
           <p style="font-size: 14px; color: #24291f; margin-bottom: 20px;">Dear ${customerName},</p>
-          <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">Thank you for shopping with Julina Candles & Melts. Your payment was successful, and our team is preparing your handcrafted candles for shipment. Below are your order details.</p>
+          <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">Thank you for shopping with ALCA. Your payment was successful, and our team is preparing your handcrafted products for shipment. Below are your order details.</p>
           
           <!-- Status Card -->
           <div style="background-color: #f7f4ec; border-radius: 12px; padding: 20px; margin-bottom: 30px; border: 1px solid #efe9db;">
@@ -254,7 +254,7 @@ async function handleOrderSuccess(orderId) {
           <!-- Footer Notes -->
           <div style="border-top: 1px solid #efe9db; padding-top: 20px; text-align: center; font-size: 11px; color: #5f6455; line-height: 1.5;">
             <p style="margin: 0 0 5px 0;">If you have any questions, contact support at +91 7304888197 or pranita311096@gmail.com.</p>
-            <p style="margin: 0;">© ${new Date().getFullYear()} Julina Candles & Melts. All rights reserved.</p>
+            <p style="margin: 0;">© ${new Date().getFullYear()} ALCA. All rights reserved.</p>
           </div>
 
         </div>
@@ -265,7 +265,7 @@ async function handleOrderSuccess(orderId) {
     if (recipientEmail && recipientEmail.includes('@')) {
       await sendEmail({
         to: recipientEmail,
-        subject: `Julina Candles & Melts — Order Confirmed #${order.id}`,
+        subject: `ALCA — Order Confirmed #${order.id}`,
         html: emailHtml
       });
     }
@@ -454,7 +454,7 @@ export default async function handler(req, res) {
           currency: 'INR',
           receipt: orderId,
           notes: {
-            customer_name: req.body?.name || 'Julina Customer',
+            customer_name: req.body?.name || 'ALCA Customer',
             customer_email: req.body?.email || '',
             customer_phone: req.body?.phone || '',
           },
@@ -502,8 +502,8 @@ export default async function handler(req, res) {
             currency: currency || 'INR',
             receipt: orderReceipt,
             notes: {
-              customer_name: customer_name || 'Julina Customer',
-              customer_email: customer_email || 'support@julinacandles.in',
+              customer_name: customer_name || 'ALCA Customer',
+              customer_email: customer_email || 'support@ALCAproducts.in',
               customer_phone: customer_phone || '',
             },
           });
@@ -599,7 +599,7 @@ export default async function handler(req, res) {
       }
 
       // Always redirect to production — payments only run on prod.
-      const origin = 'https://julinacandles.in';
+      const origin = 'https://ALCAproducts.in';
       const host = req.headers.host || '';
 
       // Verify SecureHash
@@ -755,7 +755,7 @@ export default async function handler(req, res) {
               .from('users')
               .insert({
                 uid: guestUid,
-                email: guestEmail || `${guestPhone}@guest.julinacandles.in`,
+                email: guestEmail || `${guestPhone}@guest.ALCAproducts.in`,
                 name: guestName,
                 provider: 'guest',
                 role: 'user',
@@ -888,7 +888,7 @@ export default async function handler(req, res) {
           user: 'guest',
           shippingInfo: {
             name: 'Valued Customer',
-            email: 'customer@julinacandles.in',
+            email: 'customer@ALCAproducts.in',
             phone: '+91 7304888197',
             address: 'Room No. 28, Sai Shraddha Apartment, Sai Nagari',
             city: 'Ulhasnagar',
@@ -899,10 +899,10 @@ export default async function handler(req, res) {
           orderItems: [
             {
               _id: '1',
-              name: 'Caramel Coffee Cream Candle',
+              name: 'Caramel Coffee Cream product',
               price: 499,
               quantity: 1,
-              photo: '/images/productshttps://res.cloudinary.com/bzykgznp/image/upload/v1786389834/julina_candles/products/caramel_coffee_cream.png'
+              photo: '/images/productshttps://placehold.co/600x600/185e33/FFF?text=ALCA+Product'
             }
           ],
           subTotal: 499,
@@ -979,7 +979,7 @@ export default async function handler(req, res) {
         const recipientEmail = userRow?.email || shippingInfo?.email || 'shubhamvasantgundu@gmail.com';
         const customerName = userRow?.name || shippingInfo?.name || 'Customer';
 
-        const baseUrl = 'https://julinacandles.in';
+        const baseUrl = 'https://ALCAproducts.in';
 
         // If status is "Shipped" and we have tracking data, send tracking email
         if (status === 'Shipped' && updated.awb_number) {
@@ -989,13 +989,13 @@ export default async function handler(req, res) {
                 
                 <!-- Header Logo -->
                 <div style="text-align: center; margin-bottom: 30px; border-bottom: 1px solid #efe9db; padding-bottom: 20px;">
-                  <h1 style="color: #1f5133; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">Julina Candles & Melts</h1>
+                  <h1 style="color: #1f5133; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">ALCA</h1>
                   <span style="font-size: 10px; color: #c4633c; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; display: block; margin-top: 5px;">Pure & Organic</span>
                 </div>
 
                 <h2 style="color: #1f5133; font-size: 20px; font-family: Garamond, serif; margin-top: 0; font-weight: bold;">📦 Your Order Has Been Shipped!</h2>
                 <p style="font-size: 14px; color: #24291f; margin-bottom: 20px;">Dear ${customerName},</p>
-                <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">Great news! Your Julina Candles & Melts order has been dispatched and is on its way to you.</p>
+                <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">Great news! Your ALCA order has been dispatched and is on its way to you.</p>
                 
                 <!-- Tracking Information Box -->
                 <div style="background: linear-gradient(135deg, #1f5133 0%, #2d7a4d 100%); border-radius: 16px; padding: 25px; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(31, 81, 51, 0.15);">
@@ -1043,8 +1043,8 @@ export default async function handler(req, res) {
 
                 <!-- Footer Notes -->
                 <div style="border-top: 1px solid #efe9db; padding-top: 20px; text-align: center; font-size: 11px; color: #5f6455; line-height: 1.5;">
-                  <p style="margin: 0 0 5px 0;">Thank you for choosing Julina Candles & Melts! 🌾</p>
-                  <p style="margin: 0;">© ${new Date().getFullYear()} Julina Candles & Melts. All rights reserved.</p>
+                  <p style="margin: 0 0 5px 0;">Thank you for choosing ALCA! 🌾</p>
+                  <p style="margin: 0;">© ${new Date().getFullYear()} ALCA. All rights reserved.</p>
                 </div>
 
               </div>
@@ -1065,13 +1065,13 @@ export default async function handler(req, res) {
                 
                 <!-- Header Logo -->
                 <div style="text-align: center; margin-bottom: 30px; border-bottom: 1px solid #efe9db; padding-bottom: 20px;">
-                  <h1 style="color: #1f5133; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">Julina Candles & Melts</h1>
+                  <h1 style="color: #1f5133; font-size: 26px; font-weight: bold; font-family: Garamond, serif; margin: 0; letter-spacing: 2px; text-transform: uppercase;">ALCA</h1>
                   <span style="font-size: 10px; color: #c4633c; letter-spacing: 3px; font-weight: bold; text-transform: uppercase; display: block; margin-top: 5px;">Pure & Organic</span>
                 </div>
 
                 <h2 style="color: #1f5133; font-size: 20px; font-family: Garamond, serif; margin-top: 0; font-weight: bold;">Order Status Updated! 📦</h2>
                 <p style="font-size: 14px; color: #24291f; margin-bottom: 20px;">Dear ${customerName},</p>
-                <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">We wanted to let you know that the status of your Julina Candles & Melts order has been updated.</p>
+                <p style="font-size: 14px; color: #5f6455; margin-bottom: 25px;">We wanted to let you know that the status of your ALCA order has been updated.</p>
                 
                 <div style="background-color: #f7f4ec; border-radius: 12px; padding: 20px; margin-bottom: 30px; border: 1px solid #efe9db;">
                   <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -1095,7 +1095,7 @@ export default async function handler(req, res) {
                 <!-- Footer Notes -->
                 <div style="border-top: 1px solid #efe9db; padding-top: 20px; text-align: center; font-size: 11px; color: #5f6455; line-height: 1.5;">
                   <p style="margin: 0 0 5px 0;">If you have any questions, reply to this email or contact support.</p>
-                  <p style="margin: 0;">© ${new Date().getFullYear()} Julina Candles & Melts. All rights reserved.</p>
+                  <p style="margin: 0;">© ${new Date().getFullYear()} ALCA. All rights reserved.</p>
                 </div>
 
               </div>
@@ -1104,7 +1104,7 @@ export default async function handler(req, res) {
 
           await sendEmail({
             to: recipientEmail,
-            subject: `Julina Candles & Melts — Order #${updated.id} Status: ${status}`,
+            subject: `ALCA — Order #${updated.id} Status: ${status}`,
             html: emailHtml
           });
         }
@@ -1487,11 +1487,11 @@ export default async function handler(req, res) {
       }
       if (categories.length === 0) {
         categories = [
-          'Festive Urli Candles',
-          'Wooden Dough Bowl Candles',
-          'Mithai Candles',
-          'Floral Candles',
-          'Glass Jar Candles',
+          'Festive premium products',
+          'Wooden Dough Bowl products',
+          'Mithai products',
+          'Floral products',
+          'Glass Jar products',
           'Fragrances'
         ];
       }
@@ -1793,8 +1793,8 @@ export default async function handler(req, res) {
       const cleanEmail = String(email).trim().toLowerCase();
 
       // Default built-in admin credentials
-      const ADMIN_EMAIL = 'admin@julinacandles.in';
-      const DEFAULT_ADMIN_HASH = hashAdminPassword('julinacandles@2026');
+      const ADMIN_EMAIL = 'admin@ALCAproducts.in';
+      const DEFAULT_ADMIN_HASH = hashAdminPassword('ALCAproducts@2026');
       const providedPasswordHash = hashAdminPassword(password);
 
       let isAdminValid = false;
@@ -1862,7 +1862,7 @@ export default async function handler(req, res) {
           success: true,
           admin: {
             id: 'admin_001',
-            email: 'admin@julinacandles.in',
+            email: 'admin@ALCAproducts.in',
             name: 'Admin',
           }
         });

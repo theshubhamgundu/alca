@@ -19,7 +19,7 @@ import {
   FaImage
 } from 'react-icons/fa';
 
-export interface CandleVariantItem {
+export interface productVariantItem {
   id: string;
   name: string;
   label: string;
@@ -31,24 +31,24 @@ export interface CandleVariantItem {
   pack?: string;
 }
 
-const CANDLE_PRESETS = [
+const product_PRESETS = [
   {
     category: 'Packs & Sets',
     icon: '📦',
     items: [
-      { name: 'Single Candle', label: 'Single', mrp: 299, salePrice: 249, stock: 50 },
-      { name: 'Set of 2 Candles', label: 'Pack of 2', mrp: 550, salePrice: 450, stock: 30 },
+      { name: 'Single product', label: 'Single', mrp: 299, salePrice: 249, stock: 50 },
+      { name: 'Set of 2 products', label: 'Pack of 2', mrp: 550, salePrice: 450, stock: 30 },
       { name: 'Gift Box (Set of 4)', label: 'Pack of 4', mrp: 1100, salePrice: 850, stock: 20 },
       { name: 'Festive Hamper (Set of 12)', label: 'Pack of 12', mrp: 3000, salePrice: 2200, stock: 10 },
     ]
   },
   {
-    category: 'Urli & Bowl Sizes',
+    category: 'premium & Bowl Sizes',
     icon: '🏺',
     items: [
-      { name: 'Small Urli (1 Wick / 150g)', label: 'Small (150g)', mrp: 249, salePrice: 199, stock: 40 },
-      { name: 'Medium Urli (2 Wicks / 300g)', label: 'Medium (300g)', mrp: 399, salePrice: 299, stock: 25 },
-      { name: 'Grand Urli (4 Wicks / 600g)', label: 'Large (600g)', mrp: 749, salePrice: 549, stock: 15 },
+      { name: 'Small premium (1 Wick / 150g)', label: 'Small (150g)', mrp: 249, salePrice: 199, stock: 40 },
+      { name: 'Medium premium (2 Wicks / 300g)', label: 'Medium (300g)', mrp: 399, salePrice: 299, stock: 25 },
+      { name: 'Grand premium (4 Wicks / 600g)', label: 'Large (600g)', mrp: 749, salePrice: 549, stock: 15 },
     ]
   },
   {
@@ -66,14 +66,14 @@ const AdminAddProduct: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    category: 'Festive Urli Candles',
+    category: 'Festive premium products',
     stock: 50,
     price: 0,
     description: '',
   });
 
   const [hasVariants, setHasVariants] = useState(false);
-  const [variants, setVariants] = useState<CandleVariantItem[]>([]);
+  const [variants, setVariants] = useState<productVariantItem[]>([]);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string>('');
   const [uploadingImage, setUploadingImage] = useState(false);
@@ -101,7 +101,7 @@ const AdminAddProduct: React.FC = () => {
 
   // Add empty variant
   const addCustomVariant = () => {
-    const newVar: CandleVariantItem = {
+    const newVar: productVariantItem = {
       id: Date.now().toString(),
       name: `Variant ${variants.length + 1}`,
       label: `Option ${variants.length + 1}`,
@@ -117,7 +117,7 @@ const AdminAddProduct: React.FC = () => {
 
   // Load preset group
   const loadPresetGroup = (presetItems: any[]) => {
-    const newItems: CandleVariantItem[] = presetItems.map(p => ({
+    const newItems: productVariantItem[] = presetItems.map(p => ({
       id: Date.now().toString() + Math.random().toString(36).slice(2, 6),
       name: p.name,
       label: p.label || p.name,
@@ -136,7 +136,7 @@ const AdminAddProduct: React.FC = () => {
   // Duplicate a variant
   const duplicateVariant = (index: number) => {
     const target = variants[index];
-    const duplicated: CandleVariantItem = {
+    const duplicated: productVariantItem = {
       ...target,
       id: Date.now().toString(),
       name: `${target.name} (Copy)`,
@@ -147,7 +147,7 @@ const AdminAddProduct: React.FC = () => {
   };
 
   // Update a single variant field
-  const updateVariant = (index: number, field: keyof CandleVariantItem, value: any) => {
+  const updateVariant = (index: number, field: keyof productVariantItem, value: any) => {
     setVariants(prev => {
       const updated = [...prev];
       const current = { ...updated[index] };
@@ -256,7 +256,7 @@ const AdminAddProduct: React.FC = () => {
         <div className="border-b border-[#efe9db] pb-4 flex items-center justify-between flex-wrap gap-2">
           <div>
             <h1 className="text-2xl font-serif font-bold text-[#185e33] flex items-center gap-2">
-              <FaBoxOpen /> Add New Candle Product
+              <FaBoxOpen /> Add New product Product
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
               Fill in product info, upload high-res imagery, and define multiple sizes / pack variants.
@@ -277,7 +277,7 @@ const AdminAddProduct: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Lotus Bloom Grand Urli Candle"
+                placeholder="e.g. Lotus Bloom Grand premium product"
                 className="w-full px-4 py-3 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee] font-semibold text-gray-900"
                 required
               />
@@ -295,11 +295,11 @@ const AdminAddProduct: React.FC = () => {
                 className="w-full px-4 py-3 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee] font-semibold text-gray-900"
                 required
               >
-                <option value="Festive Urli Candles">Festive Urli Candles</option>
-                <option value="Floral Candles">Floral Candles</option>
-                <option value="Glass Jar Candles">Glass Jar Candles</option>
-                <option value="Mithai Candles">Mithai Candles</option>
-                <option value="Wooden Dough Bowl Candles">Wooden Dough Bowl Candles</option>
+                <option value="Festive premium products">Festive premium products</option>
+                <option value="Floral products">Floral products</option>
+                <option value="Glass Jar products">Glass Jar products</option>
+                <option value="Mithai products">Mithai products</option>
+                <option value="Wooden Dough Bowl products">Wooden Dough Bowl products</option>
                 <option value="Fragrances">Fragrances</option>
               </select>
             </div>
@@ -336,7 +336,7 @@ const AdminAddProduct: React.FC = () => {
               value={formData.description}
               onChange={handleChange}
               rows={3}
-              placeholder="Handcrafted 100% soy wax scented candle with lead-free cotton wicks..."
+              placeholder="Handcrafted 100% high-quality exclusive product with lead-free cotton wicks..."
               className="w-full px-4 py-3 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee] text-gray-800 resize-none"
               required
             />
@@ -372,13 +372,13 @@ const AdminAddProduct: React.FC = () => {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════ */}
-          {/* CANDLE SIZE & VARIANTS BUILDER */}
+          {/* product SIZE & VARIANTS BUILDER */}
           {/* ═══════════════════════════════════════════════════════════════════ */}
           <div className="border border-[#C79A56]/40 bg-[#FAF7F2] p-5 md:p-6 rounded-3xl space-y-5">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#C79A56]/20 pb-4">
               <div>
                 <h3 className="text-base font-serif font-bold text-[#185E33] flex items-center gap-2">
-                  <FaLayerGroup className="text-[#C79A56]" /> Candle Sizes & Multi-Variants
+                  <FaLayerGroup className="text-[#C79A56]" /> product Sizes & Multi-Variants
                 </h3>
                 <p className="text-xs text-gray-500 mt-0.5">
                   Offer buyers different sizes (e.g. Small / Large), wicks, or pack options (Pack of 2, 4).
@@ -402,7 +402,7 @@ const AdminAddProduct: React.FC = () => {
                 <FaMagic className="text-[#C79A56]" /> 1-Click Quick Preset Sizes:
               </span>
               <div className="flex flex-wrap gap-2">
-                {CANDLE_PRESETS.map((preset) => (
+                {product_PRESETS.map((preset) => (
                   <button
                     key={preset.category}
                     type="button"

@@ -8,20 +8,20 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: 'What makes Julina Candles & Melts special?',
-    answer: 'Julina Candles & Melts is a trusted exporter and supplier of handcrafted decorative candles, scented soy wax candles, and traditional urli candles from Maharashtra, India. We use 100% natural soy wax, therapeutic essential oils, lead-free cotton wicks, and hand-poured floral embeds.'
+    question: 'What makes ALCA special?',
+    answer: 'ALCA is a trusted exporter and supplier of handcrafted decorative products, exclusive high-quality products, and traditional premium products from Maharashtra, India. We use 100% natural high-quality, therapeutic essential oils, lead-free cotton wicks, and hand-crafted floral embeds.'
   },
   {
-    question: 'Are your candles safe and non-toxic?',
-    answer: 'Yes, 100%. Our candles are made with pure, eco-friendly soy wax which burns soot-free and non-toxic. They are completely safe for indoor air quality around children and pets.'
+    question: 'Are your products safe and non-toxic?',
+    answer: 'Yes, 100%. Our products are made with pure, eco-friendly high-quality which burns soot-free and non-toxic. They are completely safe for indoor air quality around children and pets.'
   },
   {
     question: 'Do you accept bulk, wholesale, and global export orders?',
     answer: 'Yes! We supply wholesalers, retailers, event planners, and international buyers. We offer custom branding, bulk price tier discounts, and export-compliant sturdy packaging. Contact us at pranita311096@gmail.com or +91 7304888197 for bulk quotes.'
   },
   {
-    question: 'How long do your scented soy wax candles burn?',
-    answer: 'Our jar and urli candles offer extended burn times ranging from 25 to 50+ hours depending on the candle size. For maximum burn efficiency, trim the wick to 1/4 inch before each burn.'
+    question: 'How long do your exclusive high-quality products burn?',
+    answer: 'Our jar and premium products offer extended burn times ranging from 25 to 50+ hours depending on the product size. For maximum burn efficiency, trim the wick to 1/4 inch before each burn.'
   },
   {
     question: 'How long does shipping take across India and globally?',
@@ -52,7 +52,7 @@ const FAQSection: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-sm text-gray-500 mt-2">
-            Have questions about our handcrafted candles, bulk orders, or global export?
+            Have questions about our handcrafted products, bulk orders, or global export?
           </p>
         </div>
 

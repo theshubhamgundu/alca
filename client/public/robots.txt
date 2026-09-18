@@ -1,4 +1,4 @@
-# robots.txt – Julina Candles & Melts (julinacandles.in)
+# robots.txt – ALCA (ALCAproducts.in)
 # Last Updated: 2026-08-10
 # Purpose: SEO optimization & crawler management
 
@@ -135,5 +135,5 @@ Disallow: /
 # ============================================
 # SITEMAP
 # ============================================
-Sitemap: https://julinacandles.in/sitemap.xml
+Sitemap: https://ALCAproducts.in/sitemap.xml
 

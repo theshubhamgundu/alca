@@ -47,7 +47,7 @@ async function uploadAll() {
     }
 
     const fileName = path.basename(filePath, path.extname(filePath)).replace(/[^a-zA-Z0-9_\-]/g, '_');
-    const folder = filePath.includes('avatars') ? 'julina_candles/avatars' : 'julina_candles/products';
+    const folder = filePath.includes('avatars') ? 'ALCA_products/avatars' : 'ALCA_products/products';
 
     try {
       console.log(`Uploading: ${relativePath} ...`);

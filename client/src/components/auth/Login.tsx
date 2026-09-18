@@ -24,7 +24,7 @@ const LoginPage: React.FC = () => {
         setIsLoading(true);
         try {
             // Known demo accounts — skip Supabase auth entirely
-            const demoEmails = ['admin@julinacandles.in', 'customer@julinacandles.in'];
+            const demoEmails = ['admin@alca.in', 'customer@alca.in'];
             const isDemoAccount = demoEmails.includes(email.toLowerCase());
 
             if (isDemoAccount) {
@@ -33,8 +33,8 @@ const LoginPage: React.FC = () => {
                     _id: isAdmin ? 'admin_id_001' : 'user_' + Date.now(),
                     uid: isAdmin ? 'admin_uid_001' : 'user_uid_' + Date.now(),
                     email: email,
-                    name: isAdmin ? 'Julina Candles & Melts Admin' : email.split('@')[0],
-                    displayName: isAdmin ? 'Julina Candles & Melts Admin' : email.split('@')[0],
+                    name: isAdmin ? 'ALCA Admin' : email.split('@')[0],
+                    displayName: isAdmin ? 'ALCA Admin' : email.split('@')[0],
                     photoURL: '',
                     role: isAdmin ? 'admin' : 'user',
                     provider: 'email'
@@ -87,8 +87,8 @@ const LoginPage: React.FC = () => {
                 dispatch(userExists({
                     _id: 'user_google_' + Date.now(),
                     uid: 'user_google_uid_' + Date.now(),
-                    email: 'customer@julinacandles.in',
-                    name: 'Julina Candles & Melts Customer',
+                    email: 'customer@alca.in',
+                    name: 'ALCA Customer',
                     role: 'user',
                     provider: 'google'
                 } as any));

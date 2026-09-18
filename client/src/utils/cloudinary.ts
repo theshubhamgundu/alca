@@ -3,12 +3,12 @@
  */
 export const uploadToCloudinary = async (fileOrBase64: File | string): Promise<{ url: string; publicId: string }> => {
   const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'bzykgznp';
-  const uploadPreset = 'julina_unsigned'; // Or direct unsigned upload
+  const uploadPreset = 'ALCA_unsigned'; // Or direct unsigned upload
 
   const formData = new FormData();
   formData.append('file', fileOrBase64);
   formData.append('upload_preset', uploadPreset);
-  formData.append('folder', 'julina_candles/products');
+  formData.append('folder', 'ALCA_products/products');
 
   try {
     const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {

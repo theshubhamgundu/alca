@@ -4,8 +4,8 @@ import { usePageSEO } from '../hooks/usePageSEO';
 
 const RefundPolicy: React.FC = () => {
   usePageSEO({
-    title: 'Refund & Returns Policy | Julina Candles & Melts',
-    description: 'Julina Candles & Melts Refund & Returns Policy — 7-day return window, hassle-free refund process for all Artisanal Candles orders placed on julinacandles.in.',
+    title: 'Refund & Returns Policy | ALCA',
+    description: 'ALCA Refund & Returns Policy — 7-day return window, hassle-free refund process for all Artisanal products orders placed on alca.in.',
     canonical: '/refund-policy',
   });
   return (
@@ -14,14 +14,14 @@ const RefundPolicy: React.FC = () => {
         <div className="mb-8 border-b border-gray-100 pb-6">
           <span className="text-xs font-semibold text-secondary uppercase tracking-widest">RETURNS & GUARANTEE</span>
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary mt-1">Refund & Return Policy</h1>
-          <p className="text-xs text-muted mt-2">Last Updated: August 10, 2026 • Julina Candles & Melts</p>
+          <p className="text-xs text-muted mt-2">Last Updated: August 10, 2026 • ALCA</p>
         </div>
 
         <div className="space-y-6 text-sm text-ink leading-relaxed">
           <section>
             <h2 className="text-lg font-serif font-bold text-primary mb-2">1. Return Eligibility</h2>
             <p>
-              Returns are accepted if the product arrives with damaged packaging, the candle/melt is defective, or an incorrect item was delivered. Products must be unused and in original condition to be eligible for return.
+              Returns are accepted if the product arrives with damaged packaging, the product/service is defective, or an incorrect item was delivered. Products must be unused and in original condition to be eligible for return.
             </p>
           </section>
 

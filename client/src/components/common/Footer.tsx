@@ -15,14 +15,14 @@ const Footer: React.FC = () => {
         <div className="lg:col-span-4 space-y-6">
           <Link to="/" className="inline-block">
             <div className="w-24 h-24 rounded-full bg-[#FBF6ED] p-2 shadow-xl border-2 border-[#C79A56] flex items-center justify-center overflow-hidden transform hover:scale-105 transition-transform duration-300">
-              <img src="https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png" alt="Julina Candles & Melts Logo" className="w-full h-full object-cover rounded-full" />
+              <img src="https://placehold.co/600x600/185e33/FFF?text=ALCA+Product" alt="ALCA Logo" className="w-full h-full object-cover rounded-full" />
             </div>
           </Link>
 
           <div>
-            <h4 className="text-xl font-serif font-bold text-white">Julina Candles & Melts</h4>
+            <h4 className="text-xl font-serif font-bold text-white">ALCA</h4>
             <p className="text-xs text-[#F4EADA]/80 mt-2 leading-relaxed font-light">
-              Trusted Exporter & Supplier of handcrafted decorative candles, 100% natural soy wax jars, lotus pond urlis, coffee collection candles, and luxury gift boxes from Maharashtra, India.
+              Your trusted partner for events, catering, design, and premium products. The ALCA Platform connects you with top-tier services across India.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           <div className="flex items-center gap-3 pt-2">
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/julina_candles_n_melts"
+              href="https://www.instagram.com/alca_platform_n_services"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/917304888197"
+              href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
             <FaPhone className="text-[#C79A56] text-sm mt-0.5 flex-shrink-0" />
             <div>
               <span className="text-[10px] uppercase font-bold text-[#C79A56] block">Phone & WhatsApp:</span>
-              <a href="tel:+917304888197" className="hover:text-white transition-colors font-medium">+91 73048 88197</a>
+              <a href="tel:+919876543210" className="hover:text-white transition-colors font-medium">+91 98765 43210</a>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
             <FaEnvelope className="text-[#C79A56] text-sm mt-0.5 flex-shrink-0" />
             <div>
               <span className="text-[10px] uppercase font-bold text-[#C79A56] block">Email Queries:</span>
-              <a href="mailto:pranita311096@gmail.com" className="hover:text-white transition-colors font-medium">pranita311096@gmail.com</a>
+              <a href="mailto:contact@alca.in" className="hover:text-white transition-colors font-medium">contact@alca.in</a>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
             <div>
               <span className="text-[10px] uppercase font-bold text-[#C79A56] block">Manufacturing & Headquarters:</span>
               <p className="leading-relaxed font-light text-[11px] mt-0.5">
-                Room No. 28, Sai Shraddha Apartment, Sai Nagari, Ashelegaon, Ulhasnagar, Maharashtra - 421004
+                ALCA Headquarters, Mumbai, Maharashtra, India
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
       {/* ─── Bottom Copyright Bar ─── */}
       <div className="border-t border-white/10 bg-[#1E1418] py-6 text-xs text-[#F4EADA]/60 font-light">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p>© 2026 Julina Candles & Melts. All rights reserved.</p>
+          <p>© 2026 ALCA. All rights reserved.</p>
 
           {/* Secure badge removed */}
 

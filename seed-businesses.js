@@ -60,12 +60,12 @@ const businessesData = [
     is_active: true
   },
   {
-    name: 'Julina Candles – Luxury Handcrafted Candles',
-    slug: 'julina-candles',
-    description: 'Exquisite, luxury handcrafted candles that bring warmth and elegance to any space.',
+    name: 'ALCA – Luxury Handcrafted products',
+    slug: 'ALCA-products',
+    description: 'Exquisite, luxury handcrafted products that bring warmth and elegance to any space.',
     primary_color: '#185e33',
     secondary_color: '#C79A56',
-    contact_email: 'sales@julinacandles.in',
+    contact_email: 'sales@ALCAproducts.in',
     contact_phone: '+91 73048 88197',
     is_active: true
   },

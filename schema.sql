@@ -1,5 +1,5 @@
 -- ========================================================
--- Julina Candles & Melts E-Commerce Production Database Schema
+-- ALCA E-Commerce Production Database Schema
 -- Compatible with Supabase / PostgreSQL
 -- ========================================================
 

@@ -4,8 +4,8 @@ import { usePageSEO } from '../hooks/usePageSEO';
 
 const TermsAndConditions: React.FC = () => {
   usePageSEO({
-    title: 'Terms & Conditions | Julina Candles & Melts',
-    description: 'Read the Terms & Conditions for using Julina Candles & Melts (julinacandles.in) — governing purchases, payments, returns, and usage of our website and products.',
+    title: 'Terms & Conditions | ALCA',
+    description: 'Read the Terms & Conditions for using ALCA (alca.in) — governing purchases, payments, returns, and usage of our website and products.',
     canonical: '/terms',
     noIndex: false,
   });
@@ -15,21 +15,21 @@ const TermsAndConditions: React.FC = () => {
         <div className="mb-8 border-b border-gray-100 pb-6">
           <span className="text-xs font-semibold text-secondary uppercase tracking-widest">LEGAL & COMPLIANCE</span>
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary mt-1">Terms & Conditions</h1>
-          <p className="text-xs text-muted mt-2">Last Updated: August 10, 2026 • Julina Candles & Melts</p>
+          <p className="text-xs text-muted mt-2">Last Updated: August 10, 2026 • ALCA</p>
         </div>
 
         <div className="space-y-6 text-sm text-ink leading-relaxed">
           <section>
             <h2 className="text-lg font-serif font-bold text-primary mb-2">1. Overview & Agreement</h2>
             <p>
-              Welcome to <strong>Julina Candles & Melts</strong>. By accessing our website, purchasing our handcrafted decorative candles & melts, or utilizing our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a purchase.
+              Welcome to <strong>ALCA</strong>. By accessing our website, purchasing our handcrafted decorative products & services, or utilizing our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a purchase.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-serif font-bold text-primary mb-2">2. Product Disclaimer</h2>
             <p>
-              Julina Candles & Melts handcrafted artisanal candles are premium home décor and ambiance products. Always ensure proper ventilation when burning candles and keep away from flammable items, children, and pets. Never leave a burning candle unattended.
+              ALCA handcrafted artisanal products are premium home décor and ambiance products. Always ensure proper ventilation when burning products and keep away from flammable items, children, and pets. Never leave a burning product unattended.
             </p>
           </section>
 
@@ -50,7 +50,7 @@ const TermsAndConditions: React.FC = () => {
           <section>
             <h2 className="text-lg font-serif font-bold text-primary mb-2">5. Intellectual Property</h2>
             <p>
-              All trademarks, product designs, logos, images, and content on this website are the exclusive property of Julina Candles & Melts. Unauthorized reproduction or commercial distribution is strictly prohibited.
+              All trademarks, product designs, logos, images, and content on this website are the exclusive property of ALCA. Unauthorized reproduction or commercial distribution is strictly prohibited.
             </p>
           </section>
 
@@ -65,7 +65,7 @@ const TermsAndConditions: React.FC = () => {
             <h2 className="text-lg font-serif font-bold text-primary mb-2">7. Contact Information</h2>
             <p className="text-xs text-muted">
               For any legal inquiries regarding these Terms & Conditions, please contact us:<br />
-              <strong>Entity:</strong> Julina Candles & Melts<br />
+              <strong>Entity:</strong> ALCA<br />
               <strong>Address:</strong> Hyderabad, Telangana, India<br />
               <strong>Email:</strong> <a href="mailto:pranita311096@gmail.com" className="text-secondary hover:underline">pranita311096@gmail.com</a> | <strong>Phone/WhatsApp:</strong> +91 73048 88197
             </p>

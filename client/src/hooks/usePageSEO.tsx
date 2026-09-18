@@ -11,8 +11,8 @@ interface SEOProps {
   schema?: object | object[];
 }
 
-const BASE_URL = 'https://julinacandlesandmelts.in';
-const DEFAULT_IMAGE = `${BASE_URL}https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png`;
+const BASE_URL = 'https://alca.in';
+const DEFAULT_IMAGE = `${BASE_URL}https://placehold.co/600x600/185e33/FFF?text=ALCA+Product`;
 
 /**
  * usePageSEO – sets <title>, all meta tags, canonical, and injects
@@ -69,7 +69,7 @@ export function usePageSEO({
     setMeta('og:type', ogType, true);
     setMeta('og:image', ogImage, true);
     setMeta('og:image:alt', title, true);
-    setMeta('og:site_name', 'Julina Candles & Melts', true);
+    setMeta('og:site_name', 'ALCA', true);
     setMeta('og:locale', 'en_IN', true);
 
     // ─── Twitter / X ───
@@ -95,7 +95,7 @@ export function usePageSEO({
 
     // Cleanup on unmount — restore defaults
     return () => {
-      document.title = 'Julina Candles & Melts | Luxury Decorative, Scented & Urli Candle Exporter';
+      document.title = 'ALCA | Luxury Decorative, exclusive & premium product Exporter';
       document.querySelectorAll('script[data-page-schema]').forEach((el) => el.remove());
     };
   }, [title, description, canonical, ogType, ogImage, keywords, noIndex, schema]);

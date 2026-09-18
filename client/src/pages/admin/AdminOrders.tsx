@@ -366,7 +366,7 @@ const AdminOrders: React.FC = () => {
                       {/* Items */}
                       <td className="px-5 py-3.5">
                         <span className="font-semibold text-gray-700 text-xs">
-                          {itemCount} {itemCount === 1 ? 'candle' : 'candles'}
+                          {itemCount} {itemCount === 1 ? 'product' : 'products'}
                         </span>
                         {items[0]?.name && (
                           <span className="text-[10px] text-gray-400 block truncate max-w-[150px] mt-0.5">
@@ -407,7 +407,7 @@ const AdminOrders: React.FC = () => {
                         <div className="flex items-center justify-end gap-2">
                           {customer.phone && (
                             <a
-                              href={`https://wa.me/91${customer.phone.replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(customer.name)},%20regarding%20your%20Julina%20Candles%20order%20%23${order._id ? order._id.slice(0, 8) : ''}...`}
+                              href={`https://wa.me/91${customer.phone.replace(/\D/g, '')}?text=Hi%20${encodeURIComponent(customer.name)},%20regarding%20your%20ALCA%20products%20order%20%23${order._id ? order._id.slice(0, 8) : ''}...`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="p-2 rounded-lg text-emerald-600 hover:bg-emerald-50 border border-emerald-200 transition"

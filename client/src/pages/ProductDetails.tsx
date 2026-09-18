@@ -44,22 +44,22 @@ const SingleProduct: React.FC = () => {
     // ─── Dynamic per-page SEO ───
     usePageSEO({
         title: product
-            ? `${product.name} | Julina Candles & Melts`
-            : 'Luxury Decorative Candle | Julina Candles & Melts',
+            ? `${product.name} | ALCA`
+            : 'Luxury Decorative product | ALCA',
         description: product
-            ? `Buy ${product.name} online. Handcrafted 100% natural soy wax candle from Julina Candles & Melts. Fast delivery across India.`
-            : 'Buy Julina Candles & Melts handcrafted decorative, scented, and soy wax candles online.',
+            ? `Buy ${product.name} online. Handcrafted 100% natural high-quality product from ALCA. Fast delivery across India.`
+            : 'Buy ALCA handcrafted decorative, exclusive, and high-quality products online.',
         canonical: `/product/${productId}`,
-        ogImage: product?.photo || 'https://julinacandlesandmelts.inhttps://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png',
+        ogImage: product?.photo || 'https://alca.inhttps://placehold.co/600x600/185e33/FFF?text=ALCA+Product',
         keywords: product
-            ? `${product.name}, buy ${product.name} online, scented candle, soy wax candle, Julina Candles & Melts`
-            : 'decorative candles, scented soy wax candles, urli candles',
+            ? `${product.name}, buy ${product.name} online, exclusive product, high-quality product, ALCA`
+            : 'decorative products, exclusive high-quality products, premium products',
         schema: product
             ? [
                 webPageSchema({
                     url: `/product/${productId}`,
-                    name: `${product.name} | Julina Candles & Melts`,
-                    description: `Buy ${product.name} online — handcrafted soy wax candle.`,
+                    name: `${product.name} | ALCA`,
+                    description: `Buy ${product.name} online — handcrafted high-quality product.`,
                     breadcrumb: [
                         { name: 'Home', url: '/' },
                         { name: 'Products', url: '/products' },
@@ -68,8 +68,8 @@ const SingleProduct: React.FC = () => {
                 }),
                 productSchema({
                     name: product.name,
-                    description: product.description || 'Handcrafted 100% natural soy wax candle.',
-                    image: product.photo || 'https://julinacandlesandmelts.inhttps://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png',
+                    description: product.description || 'Handcrafted 100% natural high-quality product.',
+                    image: product.photo || 'https://alca.inhttps://placehold.co/600x600/185e33/FFF?text=ALCA+Product',
                     url: `/product/${productId}`,
                     sku: `JCM-${productId}`,
                     price: selectedVariant?.salePrice ?? product.price ?? 0,
@@ -164,7 +164,7 @@ const SingleProduct: React.FC = () => {
     };
 
     const getPhotoUrl = (photoUrl?: string) => {
-        if (!photoUrl) return 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png';
+        if (!photoUrl) return 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product';
         let cleaned = photoUrl.replace('/images/products/', '/images/');
         if (!cleaned.startsWith('/') && !cleaned.startsWith('http')) {
             cleaned = '/' + cleaned;
@@ -264,7 +264,7 @@ const SingleProduct: React.FC = () => {
                             {/* Features Highlights */}
                             <div className="my-4 grid grid-cols-2 gap-2 text-[11px] font-semibold text-[#5C2333]">
                                 <div className="bg-[#5C2333]/5 p-2.5 rounded-xl border border-[#5C2333]/10 flex items-center gap-2">
-                                    <span>🌱 100% Natural Soy Wax</span>
+                                    <span>🌱 100% Natural high-quality</span>
                                 </div>
                                 <div className="bg-[#5C2333]/5 p-2.5 rounded-xl border border-[#5C2333]/10 flex items-center gap-2">
                                     <span>✨ Clean soot-free burn</span>
@@ -281,7 +281,7 @@ const SingleProduct: React.FC = () => {
                         {/* Bulk WhatsApp Inquiry & Add to Cart Controls */}
                         <div className="space-y-3 pt-4 border-t border-gray-100">
                             <a
-                                href={`https://wa.me/917304888197?text=${encodeURIComponent(`Hi Julina Candles, I am interested in bulk/custom order for "${resolvedProduct.name}"`)}`}
+                                href={`https://wa.me/917304888197?text=${encodeURIComponent(`Hi ALCA, I am interested in bulk/custom order for "${resolvedProduct.name}"`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold py-2.5 px-4 rounded-full text-xs transition-all flex items-center justify-center gap-2 shadow-xs"

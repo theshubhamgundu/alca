@@ -72,7 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   const getPhotoUrl = (photoUrl?: string) => {
-    if (!photoUrl) return optimizeCloudinaryUrl('https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png', 400);
+    if (!photoUrl) return optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 400);
     let cleaned = photoUrl.replace('/images/products/', '/images/');
     if (!cleaned.startsWith('/') && !cleaned.startsWith('http')) {
       cleaned = '/' + cleaned;

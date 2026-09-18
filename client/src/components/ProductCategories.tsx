@@ -4,30 +4,30 @@ import { optimizeCloudinaryUrl } from '../utils/cloudinaryOptimize';
 
 const categoryTiles = [
   {
-    title: 'Festive Urli Candles',
-    subtitle: 'Traditional hand-poured peacock & lotus urlis.',
-    img: optimizeCloudinaryUrl('https://res.cloudinary.com/bzykgznp/image/upload/v1786389862/julina_candles/products/peacock_pink_wax_urli.png', 800),
-    link: '/products?category=Festive%20Urli%20Candles',
+    title: 'Festive premium products',
+    subtitle: 'Traditional hand-crafted peacock & lotus premiums.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 800),
+    link: '/products?category=Festive%20premium%20products',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
     title: 'New Arrivals',
-    subtitle: 'Exquisite lotus pond & scented jar creations.',
-    img: optimizeCloudinaryUrl('https://res.cloudinary.com/bzykgznp/image/upload/v1786389855/julina_candles/products/lotus_pond_urli.png', 600),
+    subtitle: 'Exquisite lotus pond & exclusive jar creations.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 600),
     link: '/products',
     btnBg: 'bg-[#1f5133] text-white',
   },
   {
     title: 'Fragrance Collection',
-    subtitle: 'Captivating coffee & floral candle aromatics.',
-    img: optimizeCloudinaryUrl('https://res.cloudinary.com/bzykgznp/image/upload/v1786389834/julina_candles/products/caramel_coffee_cream.png', 800),
+    subtitle: 'Captivating coffee & floral product aromatics.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 800),
     link: '/products?category=Fragrances',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
     title: 'Artisanal Collection',
-    subtitle: 'Atmosphere-enhancing modak & dessert wax candles.',
-    img: optimizeCloudinaryUrl('https://res.cloudinary.com/bzykgznp/image/upload/v1786389859/julina_candles/products/modak_shaped_scented.png', 600),
+    subtitle: 'Atmosphere-enhancing modak & dessert wax products.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 600),
     link: '/products',
     btnBg: 'bg-white text-[#2A1C22]',
   },
@@ -41,20 +41,20 @@ const ProductCategories: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
           <span className="text-xs font-bold text-[#C79A56] uppercase tracking-[0.2em] block mb-1.5">
-            ARTISANAL HAND-POURED CREATIONS
+            ARTISANAL hand-crafted CREATIONS
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#5C2333]">
             Featured Collections & Categories
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 font-light mt-1 max-w-lg mx-auto">
-            Discover our hand-poured soy wax collections crafted to complement your home ambiance.
+            Discover our hand-crafted high-quality collections crafted to complement your home ambiance.
           </p>
         </div>
 
         {/* Mobile: 2x2 grid | Desktop: Bento (tall-left, stacked-middle, tall-right) */}
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-6">
           
-          {/* 1. Festive Urli (Mobile: Top Left | Desktop: Left Column) */}
+          {/* 1. Festive premium (Mobile: Top Left | Desktop: Left Column) */}
           <div
             onClick={() => navigate(categoryTiles[0].link)}
             className="col-span-1 lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:row-span-2 h-56 sm:h-72 lg:h-[500px] rounded-2xl lg:rounded-3xl overflow-hidden relative group cursor-pointer shadow-md border border-[#E6DACB]"

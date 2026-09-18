@@ -1,8 +1,8 @@
 [
   {
     "id": 17,
-    "category": "Floral Candles",
-    "name": "Daisy Candle",
+    "category": "Floral products",
+    "name": "Daisy product",
     "pack": "Pack of 4",
     "size": "5.8cm width, 1.2cm height",
     "singlePrice": 119,
@@ -12,8 +12,8 @@
   },
   {
     "id": 18,
-    "category": "Floral Candles",
-    "name": "Rose Bud Candle",
+    "category": "Floral products",
+    "name": "Rose Bud product",
     "pack": "Pack of 4",
     "size": "4cm width, 5cm height",
     "singlePrice": 100,
@@ -23,8 +23,8 @@
   },
   {
     "id": 19,
-    "category": "Floral Candles",
-    "name": "Rose Heart Candles",
+    "category": "Floral products",
+    "name": "Rose Heart products",
     "pack": "Pack of 2",
     "size": "6.5cm width, 4.5cm height",
     "singlePrice": 109,
@@ -34,7 +34,7 @@
   },
   {
     "id": 20,
-    "category": "Floral Candles",
+    "category": "Floral products",
     "name": "Kumud Jyot",
     "pack": "Single piece",
     "size": "9cm width, 4.5cm height",
@@ -45,8 +45,8 @@
   },
   {
     "id": 21,
-    "category": "Glass Jar Candles",
-    "name": "Sunflower Blossom Candle",
+    "category": "Glass Jar products",
+    "name": "Sunflower Blossom product",
     "pack": "Single piece",
     "size": "8.5cm diameter, 4.5cm height",
     "singlePrice": 209,
@@ -56,8 +56,8 @@
   },
   {
     "id": 22,
-    "category": "Glass Jar Candles",
-    "name": "Daisy Bloom Candles",
+    "category": "Glass Jar products",
+    "name": "Daisy Bloom products",
     "pack": "Single piece",
     "size": "8.5cm diameter, 4.5cm height",
     "singlePrice": 209,
@@ -67,8 +67,8 @@
   },
   {
     "id": 23,
-    "category": "Glass Jar Candles",
-    "name": "Frost Glass Candles",
+    "category": "Glass Jar products",
+    "name": "Frost Glass products",
     "pack": "Single piece",
     "size": "220ml",
     "singlePrice": 199,
@@ -78,8 +78,8 @@
   },
   {
     "id": 24,
-    "category": "Glass Jar Candles",
-    "name": "Tinted Jar Candle",
+    "category": "Glass Jar products",
+    "name": "Tinted Jar product",
     "pack": "Single piece",
     "size": "150ml",
     "singlePrice": 129,

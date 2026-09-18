@@ -1,4 +1,4 @@
-const CACHE_NAME = 'julina-image-cache-v1';
+const CACHE_NAME = 'ALCA-image-cache-v1';
 
 // Intercept network requests and cache Cloudinary images locally
 self.addEventListener('fetch', (event) => {

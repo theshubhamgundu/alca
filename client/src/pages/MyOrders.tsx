@@ -7,8 +7,8 @@ import { usePageSEO } from '../hooks/usePageSEO';
 
 const MyOrders: React.FC = () => {
     usePageSEO({
-        title: 'My Orders | Julina Candles & Melts',
-        description: 'Track and view your past orders with Julina Candles & Melts.',
+        title: 'My Orders | ALCA',
+        description: 'Track and view your past orders with ALCA.',
         canonical: '/my-orders',
         noIndex: true,
     });

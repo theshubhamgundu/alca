@@ -1,4 +1,4 @@
-// Dynamic Sitemap Generator for Julina Candles & Melts
+// Dynamic Sitemap Generator for ALCA
 // Run this script to generate sitemap.xml with all products and blogs
 // Usage: node api/generate-sitemap.js
 
@@ -11,7 +11,7 @@ const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ygqddtioylsrvgecmmfh.s
 const SUPABASE_KEY = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlncWRkdGlveWxzcnZnZWNtbWZoIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NDg5NjA4OSwiZXhwIjoyMTAwNDcyMDg5fQ.s3bO24CLIPJP6_VQorTIYfxAVLBdVrM9zO-9hJwtysQ';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const BASE_URL = 'https://julinacandles.in';
+const BASE_URL = 'https://ALCAproducts.in';
 
 // Format date for sitemap (YYYY-MM-DD)
 function formatDate(date) {

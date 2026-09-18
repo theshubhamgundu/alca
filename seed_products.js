@@ -1,5 +1,5 @@
 /**
- * Seed Script: Insert all 20 Julina Candle products into Supabase via API
+ * Seed Script: Insert all 20 ALCA product products into Supabase via API
  * Run once: node seed_products.js
  * 
  * This uses the admin API endpoint which bypasses RLS.
@@ -19,9 +19,9 @@ const VALID_EVENT_ID = process.env.EVENT_ID || null;
 
 const PRODUCTS = [
   {
-    name: "Kesari Kripa Urli Candle", category: "Festive Urli Candles",
-    description: "Inspired by vibrant hues of Marigold flowers. Handcrafted natural soy wax candle in brass-style decorative urli. Customisation available.",
-    price: 299, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389845/julina_candles/products/handicraf_lotus_pond.png",
+    name: "Kesari Kripa premium product", category: "Festive premium products",
+    description: "Inspired by vibrant hues of Marigold flowers. Handcrafted natural high-quality product in brass-style decorative premium. Customisation available.",
+    price: 299, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "1_45", name: "4.5 inch", label: "4.5 inch", price: 299, salePrice: 299, mrp: 350, stock: 50, inStock: true, bulkPrice: 254, bulkMOQ: 12 },
@@ -30,9 +30,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Sakora Bloom Urli Candle", category: "Festive Urli Candles",
-    description: "Handcrafted decorative urli candle topped with vibrant floral blooms and leaves. Customisation available.",
-    price: 289, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389855/julina_candles/products/lotus_pond_urli.png",
+    name: "Sakora Bloom premium product", category: "Festive premium products",
+    description: "Handcrafted decorative premium product topped with vibrant floral blooms and leaves. Customisation available.",
+    price: 289, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "2_45", name: "4.5 inch", label: "4.5 inch", price: 289, salePrice: 289, mrp: 330, stock: 50, inStock: true, bulkPrice: 246, bulkMOQ: 12 },
@@ -41,9 +41,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Vasant Leela Urli Candle", category: "Festive Urli Candles",
-    description: "Traditional urli candle embellished with handcrafted daisy flowers and pearl beads. Customisation available.",
-    price: 289, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389857/julina_candles/products/lotus_urli_scented.png",
+    name: "Vasant Leela premium product", category: "Festive premium products",
+    description: "Traditional premium product embellished with handcrafted daisy flowers and pearl beads. Customisation available.",
+    price: 289, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "3_45", name: "4.5 inch", label: "4.5 inch", price: 289, salePrice: 289, mrp: 330, stock: 50, inStock: true, bulkPrice: 246, bulkMOQ: 12 },
@@ -52,9 +52,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Sunflower Bliss Urli Candle", category: "Festive Urli Candles",
-    description: "Golden sunflower urli candle adorned with hand-poured sunflower embeds and golden sparkle.",
-    price: 149, stock: 60, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389880/julina_candles/products/soy_wax_sunflower_urli.png",
+    name: "Sunflower Bliss premium product", category: "Festive premium products",
+    description: "Golden sunflower premium product adorned with hand-crafted sunflower embeds and golden sparkle.",
+    price: 149, stock: 60, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "4_35", name: "3.5 inch", label: "3.5 inch", price: 149, salePrice: 149, mrp: 180, stock: 60, inStock: true, bulkPrice: 127, bulkMOQ: 12 },
@@ -63,9 +63,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Peacock Urli Candle", category: "Festive Urli Candles",
-    description: "Royal peacock decorative urli frame filled with scented soy wax and floral highlights. Customisation available.",
-    price: 279, stock: 40, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389862/julina_candles/products/peacock_pink_wax_urli.png",
+    name: "Peacock premium product", category: "Festive premium products",
+    description: "Royal peacock decorative premium frame filled with exclusive high-quality and floral highlights. Customisation available.",
+    price: 279, stock: 40, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "5_6", name: "6 inch", label: "6 inch", price: 279, salePrice: 279, mrp: 320, stock: 40, inStock: true, bulkPrice: 237, bulkMOQ: 12 },
@@ -74,9 +74,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Round Urli Candles", category: "Festive Urli Candles",
-    description: "Classic round metallic urli candle embedded with vibrant orange marigolds. Customisation available.",
-    price: 359, stock: 45, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389884/julina_candles/products/sunflower_decorative_urli.png",
+    name: "Round premium products", category: "Festive premium products",
+    description: "Classic round metallic premium product embedded with vibrant orange marigolds. Customisation available.",
+    price: 359, stock: 45, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: false, is_active: true,
     variants: [
       { id: "6_4", name: "4 inch", label: "4 inch", price: 359, salePrice: 359, mrp: 400, stock: 45, inStock: true, bulkPrice: 305, bulkMOQ: 12 },
@@ -85,9 +85,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Diya Urli Candle", category: "Festive Urli Candles",
-    description: "Multi-diya urli candle featuring a centerpiece of white flowers framed by golden wax diyas. Customisation available.",
-    price: 249, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389889/julina_candles/products/sunflower_urli_candle.png",
+    name: "Diya premium product", category: "Festive premium products",
+    description: "Multi-diya premium product featuring a centerpiece of white flowers framed by golden wax diyas. Customisation available.",
+    price: 249, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: false, is_active: true,
     variants: [
       { id: "7_8", name: "8 inch", label: "8 inch", price: 249, salePrice: 249, mrp: 299, stock: 50, inStock: true, bulkPrice: 212, bulkMOQ: 12 },
@@ -95,23 +95,23 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Moon Sun Urli Candle", category: "Festive Urli Candles",
-    description: "Artistic brass bowl candle featuring sculpted celestial Sun & Moon design with gold leaf accents.",
-    price: 199, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389866/julina_candles/products/peacock_white_wax_urli.png",
+    name: "Moon Sun premium product", category: "Festive premium products",
+    description: "Artistic brass bowl product featuring sculpted celestial Sun & Moon design with gold leaf accents.",
+    price: 199, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "8_35", name: "3.5 inch", label: "3.5 inch", price: 199, salePrice: 199, mrp: 249, stock: 50, inStock: true }],
   },
   {
-    name: "Laksh Siddhi Urli Candles", category: "Festive Urli Candles",
-    description: "Set of 2 golden glass jar candles featuring Lord Ganesha and Goddess Lakshmi motifs. Customisation available.",
-    price: 299, stock: 40, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389849/julina_candles/products/laddu_shot_glass.png",
+    name: "Laksh Siddhi premium products", category: "Festive premium products",
+    description: "Set of 2 golden glass jar products featuring Lord Ganesha and Goddess Lakshmi motifs. Customisation available.",
+    price: 299, stock: 40, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "9_2", name: "Pack of 2 (3.5 inch)", label: "Pack of 2", price: 299, salePrice: 299, mrp: 350, stock: 40, inStock: true }],
   },
   {
-    name: "Wooden Dough Bowl Candle", category: "Wooden Dough Bowl Candles",
-    description: "Rustic hand-carved wooden bowl filled with natural soy wax and scented spices like cinnamon & dried orange slice. Customisation available.",
-    price: 229, stock: 40, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389873/julina_candles/products/soy_wax_concrete_shankh.png",
+    name: "Wooden Dough Bowl product", category: "Wooden Dough Bowl products",
+    description: "Rustic hand-carved wooden bowl filled with natural high-quality and exclusive spices like cinnamon & dried orange slice. Customisation available.",
+    price: 229, stock: 40, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "10_4", name: "4 inch", label: "4 inch", price: 229, salePrice: 229, mrp: 280, stock: 40, inStock: true, bulkPrice: 195, bulkMOQ: 12 },
@@ -120,9 +120,9 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Mithai Candles", category: "Mithai Candles",
-    description: "Dessert-inspired candles shaped like Motichoor Laddus and Modaks with silver leaf detailing. Available in Pack of 4 & Pack of 6.",
-    price: 119, stock: 60, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389859/julina_candles/products/modak_shaped_scented.png",
+    name: "Mithai products", category: "Mithai products",
+    description: "Dessert-inspired products shaped like Motichoor Laddus and Modaks with silver leaf detailing. Available in Pack of 4 & Pack of 6.",
+    price: 119, stock: 60, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [
       { id: "11_4", name: "Pack of 4", label: "Pack of 4", price: 119, salePrice: 119, mrp: 150, stock: 60, inStock: true },
@@ -130,65 +130,65 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Peony Candles", category: "Floral Candles",
-    description: "Sculpted peony flower candles infused with delicate floral aromatherapy notes. Size: 8.5cm width, 4.5cm height.",
-    price: 109, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389843/julina_candles/products/daisy_scented_soy_wax.png",
+    name: "Peony products", category: "Floral products",
+    description: "Sculpted peony flower products infused with delicate floral aromatherapy notes. Size: 8.5cm width, 4.5cm height.",
+    price: 109, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "12_1", name: "Single piece", label: "Single piece", price: 109, salePrice: 109, mrp: 140, stock: 50, inStock: true }],
   },
   {
-    name: "Daisy Candle", category: "Floral Candles",
-    description: "Pack of 4 vibrant daisy flower candles. Size: 5.8cm width, 1.2cm height. Customisation available.",
-    price: 119, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389840/julina_candles/products/daisy_flower_jar.png",
+    name: "Daisy product", category: "Floral products",
+    description: "Pack of 4 vibrant daisy flower products. Size: 5.8cm width, 1.2cm height. Customisation available.",
+    price: 119, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: false, is_active: true,
     variants: [{ id: "13_4", name: "Pack of 4", label: "Pack of 4", price: 119, salePrice: 119, mrp: 150, stock: 50, inStock: true, bulkPrice: 99, bulkMOQ: 15, pack: "Pack of 4" }],
   },
   {
-    name: "Rose Bud Candle", category: "Floral Candles",
-    description: "Pack of 4 rose bud candles infused with romantic rose essential oil. Size: 4cm width, 5cm height.",
-    price: 100, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389869/julina_candles/products/rose_heart_candle.png",
+    name: "Rose Bud product", category: "Floral products",
+    description: "Pack of 4 rose bud products infused with romantic rose essential oil. Size: 4cm width, 5cm height.",
+    price: 100, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "14_4", name: "Pack of 4", label: "Pack of 4", price: 100, salePrice: 100, mrp: 130, stock: 50, inStock: true, bulkPrice: 80, bulkMOQ: 12, pack: "Pack of 4" }],
   },
   {
-    name: "Rose Heart Candles", category: "Floral Candles",
-    description: "Pack of 2 heart-shaped rose candles. Size: 6.5cm width, 4.5cm height. Customisation available.",
-    price: 109, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389871/julina_candles/products/scented_glass_jar.png",
+    name: "Rose Heart products", category: "Floral products",
+    description: "Pack of 2 heart-shaped rose products. Size: 6.5cm width, 4.5cm height. Customisation available.",
+    price: 109, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "15_2", name: "Pack of 2", label: "Pack of 2", price: 109, salePrice: 109, mrp: 140, stock: 50, inStock: true, bulkPrice: 89, bulkMOQ: 15, pack: "Pack of 2" }],
   },
   {
-    name: "Kumud Jyot", category: "Floral Candles",
-    description: "Lotus flower candle set on a traditional brass stand. Size: 9cm width, 4.5cm height. Customisation available.",
-    price: 129, stock: 45, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389834/julina_candles/products/caramel_coffee_cream.png",
+    name: "Kumud Jyot", category: "Floral products",
+    description: "Lotus flower product set on a traditional brass stand. Size: 9cm width, 4.5cm height. Customisation available.",
+    price: 129, stock: 45, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: false, is_active: true,
     variants: [{ id: "16_1", name: "Single piece", label: "Single piece", price: 129, salePrice: 129, mrp: 160, stock: 45, inStock: true, bulkPrice: 109, bulkMOQ: 12, pack: "Single piece" }],
   },
   {
-    name: "Sunflower Blossom Candle", category: "Glass Jar Candles",
-    description: "Ribbed glass bowl filled with natural soy wax and a hand-poured sunflower top. Size: 8.5cm diameter, 4.5cm height.",
-    price: 209, stock: 40, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389837/julina_candles/products/coffee_beans_candles.png",
+    name: "Sunflower Blossom product", category: "Glass Jar products",
+    description: "Ribbed glass bowl filled with natural high-quality and a hand-crafted sunflower top. Size: 8.5cm diameter, 4.5cm height.",
+    price: 209, stock: 40, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "17_1", name: "Single piece", label: "Single piece", price: 209, salePrice: 209, mrp: 260, stock: 40, inStock: true, bulkPrice: 189, bulkMOQ: 12, pack: "Single piece" }],
   },
   {
-    name: "Daisy Bloom Candles", category: "Glass Jar Candles",
-    description: "Clear glass jar with lid containing a blooming daisy candle. Size: 8.5cm diameter, 4.5cm height.",
-    price: 209, stock: 40, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389840/julina_candles/products/daisy_flower_jar.png",
+    name: "Daisy Bloom products", category: "Glass Jar products",
+    description: "Clear glass jar with lid containing a blooming daisy product. Size: 8.5cm diameter, 4.5cm height.",
+    price: 209, stock: 40, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "18_1", name: "Single piece", label: "Single piece", price: 209, salePrice: 209, mrp: 260, stock: 40, inStock: true, bulkPrice: 189, bulkMOQ: 12, pack: "Single piece" }],
   },
   {
-    name: "Frost Glass Candles", category: "Glass Jar Candles",
-    description: "Luxury matte frost glass jar candle (220ml) with custom label & box. Customisation available.",
-    price: 199, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389871/julina_candles/products/scented_glass_jar.png",
+    name: "Frost Glass products", category: "Glass Jar products",
+    description: "Luxury matte frost glass jar product (220ml) with custom label & box. Customisation available.",
+    price: 199, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: true, is_active: true,
     variants: [{ id: "19_220", name: "220ml", label: "220ml", price: 199, salePrice: 199, mrp: 250, stock: 50, inStock: true, bulkPrice: 159, bulkMOQ: 15, pack: "220ml" }],
   },
   {
-    name: "Tinted Jar Candle", category: "Glass Jar Candles",
-    description: "Cut-glass tinted jar candle (150ml) with matching glass lid. Customisation available.",
-    price: 129, stock: 50, photo: "https://res.cloudinary.com/bzykgznp/image/upload/v1786389840/julina_candles/products/daisy_flower_jar.png",
+    name: "Tinted Jar product", category: "Glass Jar products",
+    description: "Cut-glass tinted jar product (150ml) with matching glass lid. Customisation available.",
+    price: 129, stock: 50, photo: "https://placehold.co/600x600/185e33/FFF?text=ALCA+Product",
     featured: false, is_active: true,
     variants: [{ id: "20_150", name: "150ml", label: "150ml", price: 129, salePrice: 129, mrp: 160, stock: 50, inStock: true, bulkPrice: 99, bulkMOQ: 12, pack: "150ml" }],
   },

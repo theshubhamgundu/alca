@@ -144,7 +144,7 @@ const AdminProducts: React.FC = () => {
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `julina-products-${new Date().toISOString().split('T')[0]}.csv`;
+    link.download = `ALCA-products-${new Date().toISOString().split('T')[0]}.csv`;
     link.click();
   };
 
@@ -177,7 +177,7 @@ const AdminProducts: React.FC = () => {
         <div>
           <h1 className="text-2xl font-serif font-bold text-[#185e33]">Product Catalog</h1>
           <p className="text-xs text-gray-500 mt-0.5">
-            Manage your store inventory, candle variants, pricing and real-time stock levels.
+            Manage your store inventory, product variants, pricing and real-time stock levels.
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -261,7 +261,7 @@ const AdminProducts: React.FC = () => {
             </div>
           </div>
           <p className="text-2xl font-bold text-rose-700 font-serif mt-2">{stats.outOfStock}</p>
-          <p className="text-[11px] text-rose-600 font-medium mt-0.5">Needs candle batch restock</p>
+          <p className="text-[11px] text-rose-600 font-medium mt-0.5">Needs product batch restock</p>
         </div>
       </div>
 
@@ -275,7 +275,7 @@ const AdminProducts: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search candles by name, category or details..."
+              placeholder="Search products by name, category or details..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee]/50 placeholder-gray-400 transition"
             />
             {searchQuery && (
@@ -329,7 +329,7 @@ const AdminProducts: React.FC = () => {
       <div className="bg-white rounded-3xl border border-[#efe9db] shadow-sm overflow-hidden">
         <div className="p-5 border-b border-[#efe9db] flex items-center justify-between">
           <h2 className="font-serif font-bold text-[#185e33] text-base">
-            Candle Items ({filteredProducts.length})
+            product Items ({filteredProducts.length})
           </h2>
           {(searchQuery || selectedCategory !== 'All' || selectedStockFilter !== 'All') && (
             <button
@@ -384,7 +384,7 @@ const AdminProducts: React.FC = () => {
                             alt={p.name}
                             className="w-12 h-12 object-cover rounded-xl border border-[#efe9db] shadow-xs shrink-0 group-hover:scale-105 transition-transform"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389845/julina_candles/products/handicraf_lotus_pond.png';
+                              (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product';
                             }}
                           />
                           <div className="min-w-0">
@@ -483,7 +483,7 @@ const AdminProducts: React.FC = () => {
                           <button
                             onClick={() => handleDelete(p._id, p.name)}
                             className="p-2 rounded-xl text-rose-500 hover:bg-rose-50 border border-transparent hover:border-rose-200 transition text-xs"
-                            title="Delete candle"
+                            title="Delete product"
                           >
                             <FaTrash />
                           </button>

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Banner: React.FC = () => {
     const highlights = [
-        { icon: '✨', title: '100% Soy Wax', desc: 'Eco-friendly, soot-free clean burn' },
-        { icon: '🪔', title: 'Decorative Urli Candles', desc: 'Hand-poured traditional lotus & peacock designs' },
-        { icon: '☕', title: 'Coffee Collection', desc: 'Espresso & caramel aroma candles' },
+        { icon: '✨', title: '100% high-quality', desc: 'Eco-friendly, soot-free clean burn' },
+        { icon: '🪔', title: 'Decorative premium products', desc: 'hand-crafted traditional lotus & peacock designs' },
+        { icon: '☕', title: 'Coffee Collection', desc: 'Espresso & caramel aroma products' },
         { icon: '🌸', title: 'Floral Embeds', desc: 'Real dried flower petals & botanical scents' },
         { icon: '🚢', title: 'Global Exporter', desc: 'Supplying wholesalers & retailers worldwide' },
         { icon: '🎁', title: 'Luxury Gift Sets', desc: 'Perfect for festivals, weddings & events' },

@@ -10,8 +10,8 @@ import { usePageSEO } from '../hooks/usePageSEO';
 
 const Cart: React.FC = () => {
   usePageSEO({
-    title: 'Shopping Cart | Julina Candles & Melts',
-    description: 'View your shopping cart and selected Artisanal Candles products.',
+    title: 'Shopping Cart | ALCA',
+    description: 'View your shopping cart and selected Artisanal products products.',
     canonical: '/cart',
     noIndex: true,
   });
@@ -65,7 +65,7 @@ const Cart: React.FC = () => {
   };
 
   const getPhotoUrl = (photoUrl?: string) => {
-    if (!photoUrl) return 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png';
+    if (!photoUrl) return 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product';
     let cleaned = photoUrl.replace('/images/products/', '/images/');
     if (!cleaned.startsWith('/') && !cleaned.startsWith('http')) {
       cleaned = '/' + cleaned;
@@ -86,7 +86,7 @@ const Cart: React.FC = () => {
               <p className="text-5xl">🕯️</p>
               <h2 className="text-xl font-serif font-bold text-[#2A1C22]">Your cart is currently empty</h2>
               <p className="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto font-light">
-                Looks like you haven't added any handcrafted candles to your cart yet.
+                Looks like you haven't added any handcrafted products to your cart yet.
               </p>
               <Link
                 to="/products"
@@ -111,7 +111,7 @@ const Cart: React.FC = () => {
                             alt={item.name}
                             className="h-16 w-16 object-contain rounded-xl bg-white p-1 border border-[#E6DACB]"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png';
+                              (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product';
                             }}
                           />
                         </Link>
@@ -175,7 +175,7 @@ const Cart: React.FC = () => {
                                 alt={item.name}
                                 className="h-14 w-14 object-contain rounded-xl bg-[#FBF6ED] p-1 border border-[#E6DACB]"
                                 onError={(e) => {
-                                  (e.target as HTMLImageElement).src = 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png';
+                                  (e.target as HTMLImageElement).src = 'https://placehold.co/600x600/185e33/FFF?text=ALCA+Product';
                                 }}
                               />
                               <span className="font-bold text-sm text-[#5C2333] group-hover:underline">{item.name}</span>

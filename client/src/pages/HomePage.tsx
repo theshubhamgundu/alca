@@ -21,16 +21,16 @@ const HomePage: React.FC = () => {
   usePageSEO({
     title: 'ALCA Multi-Business Platform | Catering, Events, Photography & More',
     description:
-      'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury candles.',
+      'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury products.',
     canonical: '/',
     keywords:
-      'alca platform, veg non-veg catering, event planning, photography, design, julina candles, luxury candles',
+      'alca platform, veg non-veg catering, event planning, photography, design, ALCA, luxury products',
     schema: [
       webPageSchema({
         url: '/',
         name: 'ALCA Multi-Business Platform',
         description:
-          'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury candles.',
+          'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury products.',
         breadcrumb: [{ name: 'Home', url: '/' }],
       }),
     ],
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
       <section className="pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#185e33] mb-4">Welcome to ALCA Platform</h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-          Discover our diverse range of services, from premium catering and event planning to professional photography, design, and luxury handcrafted candles.
+          Discover our diverse range of services, from premium catering and event planning to professional photography, design, and luxury handcrafted products.
         </p>
 
         {businessLoading ? (
@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
                    business.slug === 'celebrations' ? '🎉' : 
                    business.slug === 'media' ? '📷' : 
                    business.slug === 'design' ? '🎨' : 
-                   business.slug === 'julina-candles' ? '🕯️' : '🏢'}
+                   business.slug === 'ALCA-products' ? '🕯️' : '🏢'}
                 </div>
                 <h3 className="text-xl font-bold mb-2 font-serif" style={{ color: business.primary_color }}>
                   {business.name}

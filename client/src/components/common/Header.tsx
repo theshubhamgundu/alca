@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../../redux/store';
 
 const promoOffers = [
-  "✨ 100% Hand-Poured Natural Soy Wax Candles • Pure Aromatherapy Fragrances",
-  "🪔 Exquisite Decorative Urli & Festival Candles • Handcrafted Artisanal Designs",
-  "🌸 Flower Embed Jars & Modak Mithai Candles • Perfect for Gifting & Home Decor",
-  "📦 Express Shipping Across India • Secure & Careful Packaging Guaranteed",
+  "✨ End-to-end Event Planning & Execution • Memorable ALCA Celebrations",
+  "🍽️ Premium Catering Services • Delicious Veg & Non-Veg Menus",
+  "📸 Professional Photography & Videography • Capturing Your Best Moments",
+  "📦 Quality Products & Reliable Delivery • The ALCA Guarantee",
 ];
 
 const Header: React.FC = () => {
@@ -38,8 +38,8 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2.5">
-              <img src="https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png" alt="Julina Candles & Melts Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border border-[#E6DACB]" />
-              <span className="text-lg md:text-2xl font-serif font-bold tracking-wide text-[#5C2333]">Julina Candles & Melts</span>
+              <img src="https://placehold.co/600x600/185e33/FFF?text=ALCA+Product" alt="ALCA Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border border-[#E6DACB]" />
+              <span className="text-lg md:text-2xl font-serif font-bold tracking-wide text-[#5C2333]">ALCA</span>
             </Link>
           </div>
 
