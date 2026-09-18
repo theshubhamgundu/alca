@@ -29,8 +29,8 @@ export const orderApi = createApi({
             query: (userId) => (`my?userId=${userId}`),
             providesTags: ['orders']
         }),
-        allOrders: builder.query<AllOrdersResponse, string>({
-            query: () => (`all`),
+        allOrders: builder.query<AllOrdersResponse, string | void | null>({
+            query: (businessId) => (businessId ? `all?businessId=${businessId}` : `all`),
             providesTags: ['orders']
         }),
         orderDetails: builder.query<OrderDetailsResponse, string>({

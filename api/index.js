@@ -2,8 +2,8 @@ import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://lzsjohnscesymlkuvmng.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6c2pvaG5zY2VzeW1sa3V2bW5nIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NjgwMDQzNCwiZXhwIjoyMTAyMzc2NDM0fQ.ywgq8iG-UWSfeqBCqGgsX_aOt9ZiN5Dav2n4zN1aLlU';
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://wfugiuojwqykcjscutki.supabase.co';
+const SUPABASE_KEY = process.env.SUPABASE_KEY || process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmdWdpdW9qd3F5a2Nqc2N1dGtpIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4OTc0MzcwNywiZXhwIjoyMTA1MzE5NzA3fQ.pouo_GAzsnC7lysGyEdxDY7T--2upduDdbTWe9UhkOc';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Simple password hashing and comparison (use bcrypt in production)
@@ -848,6 +848,12 @@ export default async function handler(req, res) {
         if (userId) {
           query = query.eq('user_uid', userId);
         }
+      } else if (url.includes('/api/v1/orders/all')) {
+        const urlObj = new URL(url, 'http://localhost');
+        const businessId = urlObj.searchParams.get('businessId');
+        if (businessId) {
+          query = query.eq('business_id', businessId);
+        }
       }
 
       const { data, error } = await query.order('created_at', { ascending: false });
@@ -1441,8 +1447,14 @@ export default async function handler(req, res) {
       let productsList = [];
       let totalProducts = 0;
 
-      const { data, error, count } = await supabase.from('products').select('*', { count: 'exact' }).order('created_at', { ascending: false });
+      const businessId = urlObj.searchParams.get('businessId');
 
+      let query = supabase.from('products').select('*', { count: 'exact' }).order('created_at', { ascending: false });
+      if (businessId) {
+        query = query.eq('business_id', businessId);
+      }
+
+      const { data, error, count } = await query;
       if (!error && data) {
         productsList = data.map(mapProduct);
         totalProducts = count || data.length;
@@ -2015,6 +2027,151 @@ export default async function handler(req, res) {
       }
 
       return res.status(200).json({ success: true, companyValues: data || [] });
+    }
+
+    // ─── MULTI-BUSINESS API ENDPOINTS ───
+    if (url.includes('/api/v1/businesses')) {
+      if (req.method === 'GET') {
+        try {
+          const { data, error } = await supabase.from('businesses').select('*').order('name', { ascending: true });
+          if (error) throw error;
+          return res.status(200).json({ success: true, businesses: data || [] });
+        } catch (error) {
+          return res.status(500).json({ success: false, message: error.message });
+        }
+      }
+      if (req.method === 'POST') {
+        try {
+          const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+          const { data, error } = await supabase.from('businesses').insert(body).select().single();
+          if (error) throw error;
+          return res.status(201).json({ success: true, business: data });
+        } catch (error) {
+          return res.status(500).json({ success: false, message: error.message });
+        }
+      }
+      if (req.method === 'PUT') {
+        try {
+          const id = url.split('/').pop();
+          const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+          const { data, error } = await supabase.from('businesses').update(body).eq('id', id).select().single();
+          if (error) throw error;
+          return res.status(200).json({ success: true, business: data });
+        } catch (error) {
+          return res.status(500).json({ success: false, message: error.message });
+        }
+      }
+    }
+
+    if (url.includes('/api/v1/enquiries')) {
+      if (req.method === 'GET') {
+        const urlObj = new URL(url, 'http://localhost');
+        const businessId = urlObj.searchParams.get('businessId');
+        let query = supabase.from('enquiries').select('*').order('created_at', { ascending: false });
+        if (businessId) query = query.eq('business_id', businessId);
+        
+        const { data, error } = await query;
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, enquiries: data || [] });
+      }
+      if (req.method === 'POST') {
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('enquiries').insert(body).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(201).json({ success: true, enquiry: data });
+      }
+      if (req.method === 'PATCH') {
+        const id = url.split('/').pop();
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('enquiries').update({ status: body.status }).eq('id', id).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, enquiry: data });
+      }
+    }
+
+    if (url.includes('/api/v1/bookings')) {
+      if (req.method === 'GET') {
+        const urlObj = new URL(url, 'http://localhost');
+        const businessId = urlObj.searchParams.get('businessId');
+        let query = supabase.from('bookings').select('*').order('booking_date', { ascending: true });
+        if (businessId) query = query.eq('business_id', businessId);
+        
+        const { data, error } = await query;
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, bookings: data || [] });
+      }
+      if (req.method === 'POST') {
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('bookings').insert(body).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(201).json({ success: true, booking: data });
+      }
+      if (req.method === 'PATCH') {
+        const id = url.split('/').pop();
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('bookings').update({ status: body.status }).eq('id', id).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, booking: data });
+      }
+    }
+
+    // ─── CMS: Page Sections ───
+    if (url.includes('/api/v1/page-sections')) {
+      if (req.method === 'GET') {
+        const urlObj = new URL(url, 'http://localhost');
+        const businessId = urlObj.searchParams.get('businessId');
+        let query = supabase.from('page_sections').select('*').order('sort_order', { ascending: true });
+        if (businessId) query = query.eq('business_id', businessId);
+
+        const { data, error } = await query;
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, sections: data || [] });
+      }
+      if (req.method === 'POST') {
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('page_sections').insert(body).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(201).json({ success: true, section: data });
+      }
+      if (req.method === 'PUT') {
+        const id = url.split('/').pop();
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('page_sections').update(body).eq('id', id).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, section: data });
+      }
+      if (req.method === 'DELETE') {
+        const id = url.split('/').pop();
+        const { error } = await supabase.from('page_sections').delete().eq('id', id);
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, message: 'Section deleted' });
+      }
+    }
+
+    // ─── Media Library ───
+    if (url.includes('/api/v1/media')) {
+      if (req.method === 'GET') {
+        const urlObj = new URL(url, 'http://localhost');
+        const businessId = urlObj.searchParams.get('businessId');
+        let query = supabase.from('media_library').select('*').order('created_at', { ascending: false });
+        if (businessId) query = query.eq('business_id', businessId);
+
+        const { data, error } = await query;
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, media: data || [] });
+      }
+      if (req.method === 'POST') {
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        const { data, error } = await supabase.from('media_library').insert(body).select().single();
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(201).json({ success: true, item: data });
+      }
+      if (req.method === 'DELETE') {
+        const id = url.split('/').pop();
+        const { error } = await supabase.from('media_library').delete().eq('id', id);
+        if (error) return res.status(500).json({ success: false, message: error.message });
+        return res.status(200).json({ success: true, message: 'Media deleted' });
+      }
     }
 
     // ─── Fallback: Return all products ───

@@ -16,6 +16,8 @@ import {
   FaExternalLinkAlt
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import SkeletonLoader from '../../components/common/SkeletonLoader';
 import { useAllProductsQuery, useDeleteProductMutation, useToggleActiveProductMutation } from '../../redux/api/product.api';
 import { CustomError, Product } from '../../types/api-types';
@@ -23,8 +25,9 @@ import { notify } from '../../utils/util';
 
 const AdminProducts: React.FC = () => {
   const navigate = useNavigate();
+  const selectedBusinessId = useSelector((state: RootState) => state.adminBusiness.selectedBusinessId);
   // Fetch products with large limit so admin can search and filter smoothly
-  const { data: productsData, isLoading, isError, error, refetch } = useAllProductsQuery({ page: 1, limit: 100, sortBy: { id: '', desc: false } });
+  const { data: productsData, isLoading, isError, error, refetch } = useAllProductsQuery({ page: 1, limit: 100, sortBy: { id: '', desc: false }, businessId: selectedBusinessId || undefined });
   const [deleteProduct] = useDeleteProductMutation();
   const [toggleActiveProduct] = useToggleActiveProductMutation();
   const [products, setProducts] = useState<Product[]>([]);

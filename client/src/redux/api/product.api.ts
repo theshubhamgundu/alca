@@ -35,9 +35,10 @@ export const productApi = createApi({
             providesTags: ['Product']
         }),
         allProducts: builder.query<ProductResponse, ProductRequest>({
-            query: ({ page, limit, sortBy }) => {
+            query: ({ page, limit, sortBy, businessId }) => {
                 const sortParam = sortBy ? `&sortBy=${JSON.stringify(sortBy)}` : '';
-                return `all?page=${page}&limit=${limit}${sortParam}`;
+                const businessParam = businessId ? `&businessId=${businessId}` : '';
+                return `all?page=${page}&limit=${limit}${sortParam}${businessParam}`;
             },
             providesTags: ['Product'],
         }),

@@ -214,3 +214,188 @@ EXCEPTION WHEN others THEN
   NULL;
 END $$;
 
+-- ========================================================
+-- ─── 8. MULTI-BUSINESS ALCA CMS SCHEMA ───
+-- ========================================================
+
+-- 8.1. Businesses Table
+CREATE TABLE IF NOT EXISTS public.businesses (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  name VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL UNIQUE,
+  description TEXT,
+  logo_url TEXT,
+  favicon_url TEXT,
+  primary_color VARCHAR(50) DEFAULT '#000000',
+  secondary_color VARCHAR(50) DEFAULT '#FFFFFF',
+  contact_email VARCHAR(255),
+  contact_phone VARCHAR(50),
+  social_links JSONB DEFAULT '{}'::jsonb,
+  seo_metadata JSONB DEFAULT '{}'::jsonb,
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT businesses_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_businesses_updated_at ON public.businesses;
+CREATE TRIGGER update_businesses_updated_at
+  BEFORE UPDATE ON public.businesses
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Add business_id to existing tables
+ALTER TABLE public.products ADD COLUMN IF NOT EXISTS business_id UUID REFERENCES public.businesses(id) ON DELETE CASCADE;
+ALTER TABLE public.orders ADD COLUMN IF NOT EXISTS business_id UUID REFERENCES public.businesses(id) ON DELETE CASCADE;
+ALTER TABLE public.coupons ADD COLUMN IF NOT EXISTS business_id UUID REFERENCES public.businesses(id) ON DELETE CASCADE;
+
+CREATE INDEX IF NOT EXISTS idx_products_business_id ON public.products(business_id);
+CREATE INDEX IF NOT EXISTS idx_orders_business_id ON public.orders(business_id);
+
+-- 8.2 CMS Content Tables
+
+-- Page Sections
+CREATE TABLE IF NOT EXISTS public.page_sections (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID NOT NULL REFERENCES public.businesses(id) ON DELETE CASCADE,
+  section_type VARCHAR(100) NOT NULL, -- e.g., 'Hero', 'About', 'Services', 'Gallery'
+  content JSONB NOT NULL DEFAULT '{}'::jsonb,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT page_sections_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_page_sections_updated_at ON public.page_sections;
+CREATE TRIGGER update_page_sections_updated_at
+  BEFORE UPDATE ON public.page_sections
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Enquiries
+CREATE TABLE IF NOT EXISTS public.enquiries (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID NOT NULL REFERENCES public.businesses(id) ON DELETE CASCADE,
+  customer_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
+  phone VARCHAR(50),
+  message TEXT,
+  service_requested VARCHAR(255),
+  status VARCHAR(50) NOT NULL DEFAULT 'New' CHECK (status IN ('New', 'Contacted', 'In Progress', 'Converted', 'Closed')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT enquiries_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_enquiries_updated_at ON public.enquiries;
+CREATE TRIGGER update_enquiries_updated_at
+  BEFORE UPDATE ON public.enquiries
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Bookings
+CREATE TABLE IF NOT EXISTS public.bookings (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID NOT NULL REFERENCES public.businesses(id) ON DELETE CASCADE,
+  customer_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
+  phone VARCHAR(50),
+  event_date DATE,
+  details JSONB DEFAULT '{}'::jsonb,
+  status VARCHAR(50) NOT NULL DEFAULT 'Pending' CHECK (status IN ('Pending', 'Confirmed', 'Completed', 'Cancelled')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT bookings_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_bookings_updated_at ON public.bookings;
+CREATE TRIGGER update_bookings_updated_at
+  BEFORE UPDATE ON public.bookings
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Testimonials
+CREATE TABLE IF NOT EXISTS public.testimonials (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID NOT NULL REFERENCES public.businesses(id) ON DELETE CASCADE,
+  customer_name VARCHAR(255) NOT NULL,
+  customer_image TEXT,
+  content TEXT NOT NULL,
+  rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT testimonials_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_testimonials_updated_at ON public.testimonials;
+CREATE TRIGGER update_testimonials_updated_at
+  BEFORE UPDATE ON public.testimonials
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- FAQs
+CREATE TABLE IF NOT EXISTS public.faqs (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID NOT NULL REFERENCES public.businesses(id) ON DELETE CASCADE,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT faqs_pkey PRIMARY KEY (id)
+);
+
+DROP TRIGGER IF EXISTS update_faqs_updated_at ON public.faqs;
+CREATE TRIGGER update_faqs_updated_at
+  BEFORE UPDATE ON public.faqs
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Media Library
+CREATE TABLE IF NOT EXISTS public.media_library (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  business_id UUID REFERENCES public.businesses(id) ON DELETE CASCADE,
+  url TEXT NOT NULL,
+  public_id VARCHAR(255) NOT NULL,
+  file_type VARCHAR(50),
+  alt_text VARCHAR(255),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT media_library_pkey PRIMARY KEY (id)
+);
+
+-- RLS for new tables
+ALTER TABLE public.businesses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.page_sections ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.enquiries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.testimonials ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.faqs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.media_library ENABLE ROW LEVEL SECURITY;
+
+-- Allow public read access
+DROP POLICY IF EXISTS "Public Read Businesses" ON public.businesses;
+CREATE POLICY "Public Read Businesses" ON public.businesses FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Public Read Page Sections" ON public.page_sections;
+CREATE POLICY "Public Read Page Sections" ON public.page_sections FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Public Read Testimonials" ON public.testimonials;
+CREATE POLICY "Public Read Testimonials" ON public.testimonials FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Public Read FAQs" ON public.faqs;
+CREATE POLICY "Public Read FAQs" ON public.faqs FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Public Read Media Library" ON public.media_library;
+CREATE POLICY "Public Read Media Library" ON public.media_library FOR SELECT USING (true);
+
+-- Allow public to insert enquiries and bookings (for contact forms)
+DROP POLICY IF EXISTS "Public Insert Enquiries" ON public.enquiries;
+CREATE POLICY "Public Insert Enquiries" ON public.enquiries FOR INSERT WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Public Insert Bookings" ON public.bookings;
+CREATE POLICY "Public Insert Bookings" ON public.bookings FOR INSERT WITH CHECK (true);
+

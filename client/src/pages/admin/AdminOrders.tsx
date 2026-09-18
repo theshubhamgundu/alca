@@ -17,8 +17,12 @@ import {
 import dayjs from 'dayjs';
 import { notify } from '../../utils/util';
 
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+
 const AdminOrders: React.FC = () => {
-  const { data, isLoading, isError, refetch } = useAllOrdersQuery('');
+  const selectedBusinessId = useSelector((state: RootState) => state.adminBusiness.selectedBusinessId);
+  const { data, isLoading, isError, refetch } = useAllOrdersQuery(selectedBusinessId || undefined);
   const [updateOrderStatus] = useUpdateOrderStatusMutation();
   const [orders, setOrders] = useState<Order[]>([]);
   const navigate = useNavigate();

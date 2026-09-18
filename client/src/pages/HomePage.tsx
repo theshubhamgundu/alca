@@ -4,28 +4,33 @@ import PopularProducts from '../components/PopularProduct';
 import FeaturedVariants from '../components/FeaturedVariants';
 import ProductCategories from '../components/ProductCategories';
 import { useLatestProductsQuery } from '../redux/api/product.api';
+import { useGetAllBusinessesQuery, Business } from '../redux/api/business.api';
+import { Link } from 'react-router-dom';
 import CustomerReviews from '../components/common/CustomerReviews';
 import { usePageSEO } from '../hooks/usePageSEO';
 import { webPageSchema } from '../seo/schemas';
 import { FaHeadset, FaTruckFast, FaGift, FaAward } from 'react-icons/fa6';
+import Loader from '../components/common/Loader';
 
 const HomePage: React.FC = () => {
   const { data: productData, isError: productError } = useLatestProductsQuery('');
+  const { data: businessData, isLoading: businessLoading } = useGetAllBusinessesQuery();
   const products = productData?.products || [];
+  const businesses = businessData?.businesses?.filter((b: Business) => b.is_active) || [];
 
   usePageSEO({
-    title: 'Julina Candles & Melts | Luxury Decorative & Scented Candle Exporter India',
+    title: 'ALCA Multi-Business Platform | Catering, Events, Photography & More',
     description:
-      'Exporter & supplier of luxury handcrafted decorative candles, soy wax urli candles, flower candles, coffee collection candles, and festive gift sets from Maharashtra, India.',
+      'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury candles.',
     canonical: '/',
     keywords:
-      'decorative candle exporter india, scented candle supplier, soy wax candles manufacturer, urli candle exporter, luxury candles india, Julina Candles & Melts',
+      'alca platform, veg non-veg catering, event planning, photography, design, julina candles, luxury candles',
     schema: [
       webPageSchema({
         url: '/',
-        name: 'Julina Candles & Melts | Luxury Decorative Candle Exporter',
+        name: 'ALCA Multi-Business Platform',
         description:
-          'Handcrafted decorative, scented, and soy wax candle exporter and supplier from Maharashtra, India.',
+          'Welcome to ALCA, your one-stop platform for catering, event celebrations, photography, design, and luxury candles.',
         breadcrumb: [{ name: 'Home', url: '/' }],
       }),
     ],
@@ -35,8 +40,8 @@ const HomePage: React.FC = () => {
     return (
       <div className="flex items-center justify-center min-h-[80vh] bg-[#FBF6ED]">
         <div className="text-center max-w-md px-6">
-          <p className="text-5xl mb-4">🕯️</p>
-          <h2 className="text-xl font-serif font-bold text-[#2A1C22] mb-2">Unable to load products</h2>
+          <p className="text-5xl mb-4">🏢</p>
+          <h2 className="text-xl font-serif font-bold text-[#2A1C22] mb-2">Unable to load platform data</h2>
           <p className="text-sm text-gray-500">Please check your connection and try again.</p>
         </div>
       </div>
@@ -45,6 +50,57 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full bg-[#FBF6ED]">
+      {/* ─── ALCA Business Directory Hub ─── */}
+      <section className="pt-20 pb-16 px-6 max-w-7xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#185e33] mb-4">Welcome to ALCA Platform</h1>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+          Discover our diverse range of services, from premium catering and event planning to professional photography, design, and luxury handcrafted candles.
+        </p>
+
+        {businessLoading ? (
+          <Loader />
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {businesses.map((business: Business) => (
+              <Link 
+                key={business.id} 
+                to={`/${business.slug}`}
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all border border-gray-100 p-6 flex flex-col items-center text-center transform hover:-translate-y-1"
+              >
+                <div 
+                  className="w-16 h-16 rounded-full mb-4 flex items-center justify-center text-2xl shadow-inner transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: `${business.primary_color}15`, color: business.primary_color }}
+                >
+                  {/* Fallback emoji based on slug, real app would use icon/logo */}
+                  {business.slug === 'catering' ? '🍲' : 
+                   business.slug === 'celebrations' ? '🎉' : 
+                   business.slug === 'media' ? '📷' : 
+                   business.slug === 'design' ? '🎨' : 
+                   business.slug === 'julina-candles' ? '🕯️' : '🏢'}
+                </div>
+                <h3 className="text-xl font-bold mb-2 font-serif" style={{ color: business.primary_color }}>
+                  {business.name}
+                </h3>
+                <p className="text-sm text-gray-500 line-clamp-3">
+                  {business.description || 'Explore our comprehensive services tailored just for you.'}
+                </p>
+                <div className="mt-4 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: business.secondary_color || business.primary_color }}>
+                  Explore Services &rarr;
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* ─── Divider ─── */}
+      <div className="w-full max-w-5xl mx-auto h-px bg-gradient-to-r from-transparent via-[#C79A56]/30 to-transparent my-4"></div>
+
+      <div className="text-center mt-12 mb-6">
+        <h2 className="text-3xl font-serif font-bold text-[#2A1C22]">Global Product Store</h2>
+        <p className="text-gray-500 mt-2">Shop premium products directly from our businesses</p>
+      </div>
+
       {/* ─── Hero Section ─── */}
       <FeaturedSection />
 

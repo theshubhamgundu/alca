@@ -81,6 +81,7 @@ export interface ProductRequest {
     page: number;
     limit: number;
     sortBy?: SortBy;
+    businessId?: string;
 }
 
 // New Product
