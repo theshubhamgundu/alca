@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Fraunces:opsz,wght@9..144,400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FBF6ED;
+  color: #2A1C22;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Fraunces', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee Ticker Styling */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glow & Flame Effects */
+@keyframes flameGlow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(199, 154, 86, 0.6)); }
+  50% { filter: drop-shadow(0 0 16px rgba(199, 154, 86, 0.9)); }
+}
+
+.flame-glow {
+  animation: flameGlow 2.5s ease-in-out infinite;
+}
+
+/* Loader */
+.loader {
+  border: 4px solid rgba(199, 154, 86, 0.2);
+  border-top: 4px solid #C79A56;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

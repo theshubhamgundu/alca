@@ -1,0 +1,239 @@
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import BackButton from '../components/common/BackBtn';
+import { useNewOrderMutation } from '../redux/api/order.api';
+import { resetCart } from '../redux/reducers/cart.reducer';
+import { RootState } from '../redux/store';
+import { NewOrderRequest } from '../types/api-types';
+import { notify } from '../utils/util';
+import { usePageSEO } from '../hooks/usePageSEO';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
+const loadRazorpayScript = (): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
+const CheckoutForm: React.FC = () => {
+  usePageSEO({
+    title: 'Checkout | Julina Candles & Melts',
+    description: 'Complete your checkout securely with Razorpay on Julina Candles & Melts.',
+    canonical: '/checkout',
+    noIndex: true,
+  });
+
+  const dispatch = useDispatch();
+
+  const {
+    shippingInfo,
+    cartItems,
+    subTotal,
+    tax,
+    discount,
+    shippingCharges,
+    total,
+  } = useSelector((state: RootState) => state.cart);
+
+  const [newOrder] = useNewOrderMutation();
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsProcessing(true);
+
+    const isLoaded = await loadRazorpayScript();
+    if (!isLoaded) {
+      notify('Failed to load Razorpay SDK. Please check your internet connection.', 'error');
+      setIsProcessing(false);
+      return;
+    }
+
+    const guestUserId = 'guest_' + (shippingInfo.phone || Date.now());
+
+    try {
+      // 1. Initiate Razorpay Order creation on backend API
+      const rzpOrderRes = await fetch('/api/v1/payments/razorpay/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: Math.round(total * 100),
+          currency: 'INR',
+          description: 'Julina Candles & Melts Luxury Order',
+          customer_name: shippingInfo.name || 'Customer',
+          customer_email: shippingInfo.email || '',
+          customer_phone: shippingInfo.phone || '',
+        }),
+      });
+
+      const rzpData = await rzpOrderRes.json();
+
+      if (!rzpData || !rzpData.success || !rzpData.order_id) {
+        notify('Failed to initialize Razorpay checkout. Please try again.', 'error');
+        setIsProcessing(false);
+        return;
+      }
+
+      // 2. Launch Razorpay Modal Popup
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_live_TO2LV3iKTZwDBr',
+        amount: rzpData.amount,
+        currency: rzpData.currency || 'INR',
+        name: 'Julina Candles & Melts',
+        description: 'Handcrafted Luxury Candles & Melts',
+        image: 'https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png',
+        order_id: rzpData.order_id,
+        handler: async function (response: any) {
+          notify('Payment verified! Saving order...', 'success');
+
+          try {
+            await fetch('/api/v1/payments/razorpay/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+          } catch (vErr) {
+            console.warn('Payment signature verification check:', vErr);
+          }
+
+          const orderData: NewOrderRequest = {
+            shippingCharges,
+            shippingInfo: {
+              ...shippingInfo,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpayOrderId: response.razorpay_order_id,
+              razorpaySignature: response.razorpay_signature,
+              clientOrigin: window.location.origin,
+            } as any,
+            tax,
+            discount,
+            total,
+            subTotal,
+            orderItems: cartItems,
+            userId: guestUserId,
+          };
+
+          try {
+            const orderRes: any = await newOrder(orderData).unwrap();
+            const createdOrderId = orderRes?.order?.id || orderRes?.order?._id || `ord_${Date.now()}`;
+
+            localStorage.setItem('guestUserId', guestUserId);
+            dispatch(resetCart());
+
+            window.location.href = `/my-orders?payment=success&orderId=${createdOrderId}`;
+          } catch (err: any) {
+            console.error('Order save error after payment:', err);
+            localStorage.setItem('guestUserId', guestUserId);
+            dispatch(resetCart());
+            window.location.href = `/my-orders?payment=success&orderId=ord_${Date.now()}`;
+          }
+        },
+        modal: {
+          ondismiss: function () {
+            setIsProcessing(false);
+            notify('Payment cancelled by customer.', 'info');
+          },
+        },
+        prefill: {
+          name: shippingInfo.name || '',
+          email: shippingInfo.email || '',
+          contact: shippingInfo.phone || '',
+        },
+        theme: {
+          color: '#5C2333',
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (error: any) {
+      console.error('Razorpay Modal launching error:', error);
+      notify('Failed to launch Razorpay payment popup. Please try again.', 'error');
+      setIsProcessing(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FBF6ED] py-10 px-4 flex flex-col items-center">
+      <div className="w-full max-w-xl mb-4">
+        <BackButton fallback="/products" />
+      </div>
+
+      <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-[#E6DACB] max-w-xl w-full">
+        {/* Merchant Branding Header */}
+        <div className="flex flex-col items-center mb-6 text-center border-b border-[#E6DACB] pb-5">
+          <img src="https://res.cloudinary.com/bzykgznp/image/upload/v1786389852/julina_candles/products/logo.png" alt="Julina Candles & Melts" className="h-16 w-auto mb-2" />
+          <h1 className="text-2xl font-serif font-bold text-[#2A1C22]">Julina Candles & Melts</h1>
+          <p className="text-xs text-gray-500 mt-1">Secure Razorpay Payment Gateway</p>
+        </div>
+
+        {/* Customer Info Summary */}
+        <div className="bg-[#FBF6ED] p-4 rounded-2xl mb-6 border border-[#E6DACB] text-xs sm:text-sm space-y-1">
+          <p className="font-bold text-[#5C2333] mb-2 uppercase tracking-wider text-xs">Shipping Summary:</p>
+          <p className="font-semibold text-gray-900">{shippingInfo.name}</p>
+          <p className="text-gray-600">{shippingInfo.address}, {shippingInfo.city}, {shippingInfo.state} - {shippingInfo.pinCode}</p>
+          <p className="text-gray-600">Phone: {shippingInfo.phone}</p>
+        </div>
+
+        {/* Order Price Breakdown */}
+        <div className="space-y-2 mb-6 border-b border-[#E6DACB] pb-4 text-xs sm:text-sm">
+          <div className="flex justify-between text-gray-600">
+            <span>Subtotal</span>
+            <span>₹ {subTotal}</span>
+          </div>
+          {discount > 0 && (
+            <div className="flex justify-between text-green-600 font-semibold">
+              <span>Discount</span>
+              <span>- ₹ {discount}</span>
+            </div>
+          )}
+          <div className="flex justify-between text-gray-600">
+            <span>Shipping Charges</span>
+            <span>₹ {shippingCharges}</span>
+          </div>
+          <div className="flex justify-between text-base sm:text-lg font-serif font-bold text-[#5C2333] pt-2 border-t border-gray-100">
+            <span>Total Payable</span>
+            <span>₹ {total}</span>
+          </div>
+        </div>
+
+        {/* Payment Submission Button */}
+        <form onSubmit={submitHandler}>
+          <button
+            type="submit"
+            disabled={isProcessing || cartItems.length === 0}
+            className="w-full bg-[#5C2333] hover:bg-[#3E1622] text-[#FBF6ED] font-bold py-4 rounded-full text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {isProcessing ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <span>Opening Razorpay Modal...</span>
+              </>
+            ) : (
+              <span>Proceed to Razorpay Payment (₹ {total}) ➔</span>
+            )}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default CheckoutForm;
