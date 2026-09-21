@@ -27,7 +27,7 @@ const ProductInfographic: React.FC = () => {
                 ✨ Handcrafted Artisanal Quality
               </div>
               <h3 className="text-lg sm:text-xl font-serif font-bold text-[#2A1C22] leading-snug">
-                hand-crafted with natural high-quality, pure aromatherapy oils, and decorative floral embeds for long-lasting clean burn
+                hand-crafted with natural high-quality materials and premium components for long-lasting durability
               </h3>
               <div className="mt-4 flex justify-center">
                 <img
@@ -48,10 +48,10 @@ const ProductInfographic: React.FC = () => {
             {/* Chips */}
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#E6DACB] shadow-xs text-xs font-bold text-gray-700">
-                <FaFire className="text-[#C79A56]" /> Long & Clean Burn Time
+                <FaFire className="text-[#C79A56]" /> Long Lasting Quality
               </div>
               <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#E6DACB] shadow-xs text-xs font-bold text-gray-700">
-                <FaSmile className="text-[#C79A56]" /> Therapeutic Aromatherapy
+                <FaSmile className="text-[#C79A56]" /> Premium Experience
               </div>
             </div>
 
@@ -70,10 +70,10 @@ const ProductInfographic: React.FC = () => {
                   <FaCheckCircle className="text-[#C79A56] shrink-0" /> 100% Natural high-quality (Biodegradable & Non-toxic)
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <FaCheckCircle className="text-[#C79A56] shrink-0" /> Lead-free Cotton & Wooden Wicks
+                  <FaCheckCircle className="text-[#C79A56] shrink-0" /> Premium Quality Components
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <FaCheckCircle className="text-[#C79A56] shrink-0" /> Premium Essential & Fragrance Oils
+                  <FaCheckCircle className="text-[#C79A56] shrink-0" /> Premium Quality Materials
                 </li>
                 <li className="flex items-center gap-2.5">
                   <FaCheckCircle className="text-[#C79A56] shrink-0" /> Export Quality Festive & premium Designs
@@ -118,15 +118,15 @@ const ProductInfographic: React.FC = () => {
                   <FaCheckCircle className="text-[#C79A56] mt-0.5 text-xs sm:text-base shrink-0" />
                   <div>
                     <strong className="text-gray-900 block text-[10px] sm:text-xs font-bold leading-snug">Essential Oils</strong>
-                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">Rich aroma throw that lingers pleasantly</span>
+                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">High quality materials that provide lasting value</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-1.5 sm:gap-2.5 bg-[#FBF6ED] p-2 sm:p-3 rounded-xl border border-[#E6DACB]">
                   <FaCheckCircle className="text-[#C79A56] mt-0.5 text-xs sm:text-base shrink-0" />
                   <div>
-                    <strong className="text-gray-900 block text-[10px] sm:text-xs font-bold leading-snug">Lead-free Wicks</strong>
-                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">100% cotton wicks with stable flame</span>
+                    <strong className="text-gray-900 block text-[10px] sm:text-xs font-bold leading-snug">Premium Components</strong>
+                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">High-quality materials with reliable performance</span>
                   </div>
                 </div>
 
@@ -134,7 +134,7 @@ const ProductInfographic: React.FC = () => {
                   <FaCheckCircle className="text-[#C79A56] mt-0.5 text-xs sm:text-base shrink-0" />
                   <div>
                     <strong className="text-gray-900 block text-[10px] sm:text-xs font-bold leading-snug">Artisanal Designs</strong>
-                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">Lotus premiums, coffee beans & floral embeds</span>
+                    <span className="text-gray-600 text-[9px] sm:text-xs block leading-tight">Premium designs, quality materials & decorative embeds</span>
                   </div>
                 </div>
               </div>
@@ -161,16 +161,16 @@ const ProductInfographic: React.FC = () => {
                 <div className="flex items-start gap-1.5 sm:gap-2.5 bg-gray-50 p-2 sm:p-3 rounded-xl border border-gray-150">
                   <FaTimesCircle className="text-red-500 mt-0.5 text-xs sm:text-base shrink-0" />
                   <div>
-                    <strong className="text-gray-800 block text-[10px] sm:text-xs font-bold leading-snug">Synthetic Fragrances</strong>
-                    <span className="text-gray-500 text-[9px] sm:text-xs block leading-tight">Harsh chemical scent causing headaches</span>
+                    <strong className="text-gray-800 block text-[10px] sm:text-xs font-bold leading-snug">Low Quality Materials</strong>
+                    <span className="text-gray-500 text-[9px] sm:text-xs block leading-tight">Cheap materials causing poor quality</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-1.5 sm:gap-2.5 bg-gray-50 p-2 sm:p-3 rounded-xl border border-gray-150">
                   <FaTimesCircle className="text-red-500 mt-0.5 text-xs sm:text-base shrink-0" />
                   <div>
-                    <strong className="text-gray-800 block text-[10px] sm:text-xs font-bold leading-snug">Cheap Metal Wicks</strong>
-                    <span className="text-gray-500 text-[9px] sm:text-xs block leading-tight">Flickering flame and smoke pollution</span>
+                    <strong className="text-gray-800 block text-[10px] sm:text-xs font-bold leading-snug">Cheap Components</strong>
+                    <span className="text-gray-500 text-[9px] sm:text-xs block leading-tight">Low quality materials and poor performance</span>
                   </div>
                 </div>
 

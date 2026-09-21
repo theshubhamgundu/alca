@@ -32,7 +32,6 @@ const AdminCustomers = lazy(() => import('./pages/admin/AdminCustomers'));
 const AdminTransactions = lazy(() => import('./pages/admin/AdminTransactions'));
 const AdminOrders = lazy(() => import('./pages/admin/AdminOrders'));
 const AdminLayout = lazy(() => import('./pages/admin/AdminLayout'));
-const AdminBusinesses = lazy(() => import('./pages/admin/AdminBusinesses'));
 const AdminEnquiries = lazy(() => import('./pages/admin/AdminEnquiries'));
 const AdminBookings = lazy(() => import('./pages/admin/AdminBookings'));
 const AdminPageSections = lazy(() => import('./pages/admin/AdminPageSections'));
@@ -48,7 +47,8 @@ const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
 const MyOrders = lazy(() => import('./pages/MyOrders'));
 const OrderDetails = lazy(() => import('./pages/OrderDetails'));
 const TrackShipment = lazy(() => import('./pages/TrackShipment'));
-const BusinessLandingPage = lazy(() => import('./pages/BusinessLandingPage'));
+const CateringPage = lazy(() => import('./pages/CateringPage'));
+const CelebrationsPage = lazy(() => import('./pages/CelebrationsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFound'));
 
 const App: React.FC = () => {
@@ -75,8 +75,10 @@ const App: React.FC = () => {
                                 <Route path="cart" element={<CartPage />} />
                                 <Route path="my-orders" element={<MyOrders />} />
                                 <Route path="/order/:id" element={<OrderDetails />} />
-                                {/* Dynamic Business Landing Pages */}
-                                <Route path="/:businessSlug" element={<BusinessLandingPage />} />
+                                
+                                {/* Business Pages */}
+                                <Route path="catering" element={<CateringPage />} />
+                                <Route path="celebrations" element={<CelebrationsPage />} />
                             </Route>
 
                             <Route path="shipping" element={<Shipping />} />
@@ -89,7 +91,6 @@ const App: React.FC = () => {
                             <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
                                 <Route index element={<Navigate to="/admin/dashboard" replace />} />
                                 <Route path="dashboard" element={<AdminDashboard />} />
-                                <Route path="businesses" element={<AdminBusinesses />} />
                                 <Route path="enquiries" element={<AdminEnquiries />} />
                                 <Route path="bookings" element={<AdminBookings />} />
                                 <Route path="page-sections" element={<AdminPageSections />} />

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../../redux/store';
 
 const promoOffers = [
-  "✨ End-to-end Event Planning & Execution • Memorable ALCA Celebrations",
-  "🍽️ Premium Catering Services • Delicious Veg & Non-Veg Menus",
-  "📸 Professional Photography & Videography • Capturing Your Best Moments",
+  "✨ Premium Quality Products • Handcrafted Excellence & Superior Materials",
+  "🎯 Professional Services • Reliable Quality & Customer Satisfaction",
+  "🏆 Award-Winning Craftsmanship • Traditional Techniques & Modern Innovation",
   "📦 Quality Products & Reliable Delivery • The ALCA Guarantee",
 ];
 

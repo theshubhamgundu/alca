@@ -8,7 +8,6 @@ import {
   useDeletePageSectionMutation,
   PageSection,
 } from '../../redux/api/pageSection.api';
-import { useGetAllBusinessesQuery } from '../../redux/api/business.api';
 import { FaPlus, FaEdit, FaTrash, FaTimes, FaArrowUp, FaArrowDown, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
@@ -17,7 +16,6 @@ const SECTION_TYPES = ['Hero', 'About', 'Services', 'Gallery', 'Testimonials', '
 const AdminPageSections: React.FC = () => {
   const selectedBusinessId = useSelector((state: RootState) => state.adminBusiness.selectedBusinessId);
   const { data, isLoading, refetch } = useGetPageSectionsQuery(selectedBusinessId || undefined);
-  const { data: businessesData } = useGetAllBusinessesQuery();
   const [createSection] = useCreatePageSectionMutation();
   const [updateSection] = useUpdatePageSectionMutation();
   const [deleteSection] = useDeletePageSectionMutation();

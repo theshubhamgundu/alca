@@ -40,7 +40,7 @@ const AdminBookings: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold font-serif text-[#1a2e1d]">Bookings</h1>
-          <p className="text-sm text-gray-500">Manage event catering, styling, and makeup bookings</p>
+          <p className="text-sm text-gray-500">Manage customer inquiries and service bookings</p>
         </div>
       </div>
 

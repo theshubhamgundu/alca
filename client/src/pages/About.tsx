@@ -18,9 +18,9 @@ const craftsmanshipPillars = [
   },
   {
     icon: <FaHeart className="w-6 h-6 text-[#C79A56]" />,
-    title: 'Aromatherapy Fragrances',
+    title: 'Premium Quality',
     description:
-      'Infused with premium therapeutic essential oils and delicate floral extracts that elevate mood, reduce stress, and scent your living space.',
+      'Infused with premium materials and high-quality components that enhance value and provide exceptional user experience.',
   },
   {
     icon: <FaGlobe className="w-6 h-6 text-[#C79A56]" />,
@@ -65,10 +65,10 @@ const AboutPage: React.FC = () => {
             About ALCA
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-4 leading-tight">
-            Handcrafted Luxury & Fragrance Artistry
+            Handcrafted Luxury & Premium Quality
           </h1>
           <p className="text-base sm:text-lg text-[#E6DACB] max-w-2xl mx-auto font-light leading-relaxed">
-            ALCA is a premier exporter and supplier of handcrafted decorative products, exclusive high-quality jars, lotus premium products, and bespoke gift collections from Ulhasnagar, Maharashtra, India.
+            ALCA is a premier exporter and supplier of handcrafted decorative products, exclusive high-quality items, premium products, and bespoke gift collections from Ulhasnagar, Maharashtra, India.
           </p>
         </div>
       </section>
@@ -82,10 +82,10 @@ const AboutPage: React.FC = () => {
               Illuminating Spaces with Elegance & Tradition
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4 text-sm">
-              At ALCA, product making is an artisanal ritual. We blend traditional Indian heritage motifs—such as lotus ponds, peacocks, modaks, and festive premiums—with contemporary aromatherapy scents like espresso, caramel, Bulgarian rose, and wild jasmine.
+              At ALCA, product making is an artisanal ritual. We blend traditional Indian heritage motifs with contemporary premium designs and high-quality materials.
             </p>
             <p className="text-gray-700 leading-relaxed text-sm">
-              Whether you are looking to elevate your home decor, host festive celebrations, or source premium products for wholesale export across the globe, ALCA delivers exceptional craftsmanship and pure, sustainable burn quality.
+              Whether you are looking to elevate your home decor, source premium products, or find quality items for wholesale export across the globe, ALCA delivers exceptional craftsmanship and sustainable quality.
             </p>
           </div>
           <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">

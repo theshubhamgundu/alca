@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-serif font-bold text-white">ALCA</h4>
             <p className="text-xs text-[#F4EADA]/80 mt-2 leading-relaxed font-light">
-              Your trusted partner for events, catering, design, and premium products. The ALCA Platform connects you with top-tier services across India.
+              Your trusted partner for premium products and professional services. The ALCA Platform delivers quality and excellence across India.
             </p>
           </div>
 

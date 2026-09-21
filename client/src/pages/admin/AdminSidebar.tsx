@@ -12,7 +12,6 @@ import {
 } from 'react-icons/fa';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetAllBusinessesQuery } from '../../redux/api/business.api';
 import { setSelectedBusinessId } from '../../redux/reducers/adminBusiness.reducer';
 import { RootState } from '../../redux/store';
 
@@ -25,7 +24,6 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isSidebarOpen, toggleSideba
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedBusinessId = useSelector((state: RootState) => state.adminBusiness.selectedBusinessId);
-  const { data: businessesData, isLoading } = useGetAllBusinessesQuery();
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');

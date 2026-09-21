@@ -10,7 +10,6 @@ import { paymentApi } from "./api/payment.api";
 import { statsApi } from "./api/stats.api";
 import { adminApi } from "./api/admin.api";
 import { razorpayApi } from "./api/razorpay.api";
-import { businessApi } from "./api/business.api";
 import { enquiryApi } from "./api/enquiry.api";
 import { bookingApi } from "./api/booking.api";
 import { pageSectionApi } from "./api/pageSection.api";
@@ -29,7 +28,6 @@ const store = configureStore({
         [statsApi.reducerPath]: statsApi.reducer,
         [adminApi.reducerPath]: adminApi.reducer,
         [razorpayApi.reducerPath]: razorpayApi.reducer,
-        [businessApi.reducerPath]: businessApi.reducer,
         [enquiryApi.reducerPath]: enquiryApi.reducer,
         [bookingApi.reducerPath]: bookingApi.reducer,
         [pageSectionApi.reducerPath]: pageSectionApi.reducer,
@@ -45,7 +43,6 @@ const store = configureStore({
             statsApi.middleware,
             adminApi.middleware,
             razorpayApi.middleware,
-            businessApi.middleware,
             enquiryApi.middleware,
             bookingApi.middleware,
             pageSectionApi.middleware,

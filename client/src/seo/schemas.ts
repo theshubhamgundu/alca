@@ -98,7 +98,7 @@ export function productSchema({
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'Material', value: '100% Natural high-quality' },
       { '@type': 'PropertyValue', name: 'Origin', value: 'Ulhasnagar, Maharashtra, India' },
-      { '@type': 'PropertyValue', name: 'Wick', value: 'Lead-Free Cotton Wick' },
+      { '@type': 'PropertyValue', name: 'Quality', value: 'Premium Handcrafted' },
     ],
   };
 }

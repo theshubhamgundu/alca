@@ -23,7 +23,7 @@ const PopularProducts: React.FC<PopularProductsProps> = ({ products }) => {
             Popular product & premium Collections
           </h2>
           <p className="text-xs md:text-sm text-gray-600 mt-3 font-light leading-relaxed">
-            Discover our bestselling 100% high-quality products, coffee aromatics, lotus pond premiums, and festive gift boxes.
+            Discover our bestselling 100% high-quality products, premium collections, and exclusive gift boxes.
           </p>
         </div>
 

@@ -44,8 +44,8 @@ const ProductsPage: React.FC = () => {
         'Wooden Dough Bowl products',
         'Mithai products',
         'Floral products',
-        'Glass Jar products',
-        'Fragrances',
+        'Glass products',
+        'Premium Collections',
     ];
 
     const handleCategoryClick = (catName: string) => {
@@ -112,52 +112,52 @@ const ProductsPage: React.FC = () => {
                             </ul>
                         </div>
 
-                        {/* Fragrance By Mood Accordion Box */}
+                        {/* Quality Standards Box */}
                         <div className="bg-white rounded-2xl p-5 border border-[#E6DACB] shadow-xs">
                             <h3 className="text-lg font-serif font-bold text-[#2A1C22] pb-3 border-b border-[#E6DACB] mb-3">
-                                Fragrance By Mood
+                                Quality Standards
                             </h3>
                             <ul className="space-y-2 text-xs sm:text-sm text-gray-600 font-sans">
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Calming & Relaxation</span>
+                                <span>Premium Quality</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Festive & Energetic</span>
+                                <span>Handcrafted</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Romantic & Passionate</span>
+                                <span>Eco-Friendly</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Wellness & Hopeful</span>
+                                <span>Durable Design</span>
                               </li>
                             </ul>
                         </div>
 
-                        {/* Fragrance By Room Box */}
+                        {/* Usage Categories Box */}
                         <div className="bg-white rounded-2xl p-5 border border-[#E6DACB] shadow-xs">
                             <h3 className="text-lg font-serif font-bold text-[#2A1C22] pb-3 border-b border-[#E6DACB] mb-3">
-                                Fragrance By Room
+                                Usage Categories
                             </h3>
                             <ul className="space-y-2 text-xs sm:text-sm text-gray-600 font-sans">
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Living Room</span>
+                                <span>Home Decoration</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Bed Room</span>
+                                <span>Festival Use</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Dining & Kitchen</span>
+                                <span>Gift Items</span>
                               </li>
                               <li className="flex items-center gap-2 cursor-pointer hover:text-[#5C2333]">
                                 <input type="checkbox" className="rounded border-gray-300 text-[#5C2333] focus:ring-0" />
-                                <span>Meditation Room</span>
+                                <span>Commercial Use</span>
                               </li>
                             </ul>
                         </div>

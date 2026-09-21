@@ -46,9 +46,9 @@ const product_PRESETS = [
     category: 'premium & Bowl Sizes',
     icon: '🏺',
     items: [
-      { name: 'Small premium (1 Wick / 150g)', label: 'Small (150g)', mrp: 249, salePrice: 199, stock: 40 },
-      { name: 'Medium premium (2 Wicks / 300g)', label: 'Medium (300g)', mrp: 399, salePrice: 299, stock: 25 },
-      { name: 'Grand premium (4 Wicks / 600g)', label: 'Large (600g)', mrp: 749, salePrice: 549, stock: 15 },
+      { name: 'Small premium (Single / 150g)', label: 'Small (150g)', mrp: 249, salePrice: 199, stock: 40 },
+      { name: 'Medium premium (Dual / 300g)', label: 'Medium (300g)', mrp: 399, salePrice: 299, stock: 25 },
+      { name: 'Grand premium (Quad / 600g)', label: 'Large (600g)', mrp: 749, salePrice: 549, stock: 15 },
     ]
   },
   {
@@ -57,7 +57,7 @@ const product_PRESETS = [
     items: [
       { name: 'Travel Tin (100g)', label: '100g Tin', mrp: 199, salePrice: 149, stock: 50 },
       { name: 'Standard Frosted Jar (200g)', label: '200g Jar', mrp: 349, salePrice: 249, stock: 35 },
-      { name: 'Luxury 3-Wick Jar (450g)', label: '450g Luxury', mrp: 699, salePrice: 499, stock: 20 },
+      { name: 'Luxury Premium Jar (450g)', label: '450g Luxury', mrp: 699, salePrice: 499, stock: 20 },
     ]
   }
 ];
@@ -277,7 +277,7 @@ const AdminAddProduct: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="e.g. Lotus Bloom Grand premium product"
+                placeholder="e.g. Premium Quality Product"
                 className="w-full px-4 py-3 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee] font-semibold text-gray-900"
                 required
               />
@@ -300,7 +300,7 @@ const AdminAddProduct: React.FC = () => {
                 <option value="Glass Jar products">Glass Jar products</option>
                 <option value="Mithai products">Mithai products</option>
                 <option value="Wooden Dough Bowl products">Wooden Dough Bowl products</option>
-                <option value="Fragrances">Fragrances</option>
+                <option value="Fragrances">Premium Collections</option>
               </select>
             </div>
 
@@ -336,7 +336,7 @@ const AdminAddProduct: React.FC = () => {
               value={formData.description}
               onChange={handleChange}
               rows={3}
-              placeholder="Handcrafted 100% high-quality exclusive product with lead-free cotton wicks..."
+              placeholder="Handcrafted 100% high-quality exclusive product with premium components..."
               className="w-full px-4 py-3 rounded-xl border border-[#ede3cf] text-sm focus:outline-none focus:ring-2 focus:ring-[#185e33]/20 bg-[#faf6ee] text-gray-800 resize-none"
               required
             />
@@ -381,7 +381,7 @@ const AdminAddProduct: React.FC = () => {
                   <FaLayerGroup className="text-[#C79A56]" /> product Sizes & Multi-Variants
                 </h3>
                 <p className="text-xs text-gray-500 mt-0.5">
-                  Offer buyers different sizes (e.g. Small / Large), wicks, or pack options (Pack of 2, 4).
+                  Offer buyers different sizes (e.g. Small / Large), styles, or pack options (Pack of 2, 4).
                 </p>
               </div>
 

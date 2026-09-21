@@ -899,7 +899,7 @@ export default async function handler(req, res) {
           orderItems: [
             {
               _id: '1',
-              name: 'Caramel Coffee Cream product',
+              name: 'Premium ALCA product',
               price: 499,
               quantity: 1,
               photo: '/images/productshttps://placehold.co/600x600/185e33/FFF?text=ALCA+Product'
@@ -1492,7 +1492,7 @@ export default async function handler(req, res) {
           'Mithai products',
           'Floral products',
           'Glass Jar products',
-          'Fragrances'
+          'Premium Collections'
         ];
       }
 

@@ -24,7 +24,7 @@
   {
     "id": 19,
     "category": "Floral products",
-    "name": "Rose Heart products",
+    "name": "Premium Floral products",
     "pack": "Pack of 2",
     "size": "6.5cm width, 4.5cm height",
     "singlePrice": 109,
@@ -89,16 +89,16 @@
   },
   {
     "id": 25,
-    "category": "Available Fragrances",
-    "name": "Fragrances",
+    "category": "Premium Collections",
+    "name": "Premium Collections",
     "options": [
-      "Sandalwood & Saffron",
-      "Lavender",
-      "Mogra",
-      "Jasmine",
-      "Bouquet",
-      "Vanilla",
-      "Coffee"
+      "Premium Quality",
+      "Handcrafted",
+      "Eco-Friendly",
+      "Traditional",
+      "Modern Design",
+      "Luxury Finish",
+      "Custom Options"
     ]
   }
 ]

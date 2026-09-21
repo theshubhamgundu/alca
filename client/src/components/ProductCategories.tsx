@@ -4,31 +4,31 @@ import { optimizeCloudinaryUrl } from '../utils/cloudinaryOptimize';
 
 const categoryTiles = [
   {
-    title: 'Premium Catering',
-    subtitle: 'Delicious Veg & Non-Veg Menus tailored for your events.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Catering', 800),
-    link: '/catering',
+    title: 'Premium Products',
+    subtitle: 'High-quality handcrafted items for discerning customers.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Premium', 800),
+    link: '/products?category=Premium+products',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
-    title: 'Magical Celebrations',
-    subtitle: 'End-to-end event planning & execution.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Events', 600),
-    link: '/celebrations',
+    title: 'Exclusive Collection',
+    subtitle: 'Limited edition and exclusive product offerings.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Exclusive', 600),
+    link: '/products?category=Exclusive+products',
     btnBg: 'bg-[#1f5133] text-white',
   },
   {
-    title: 'Snap & Print Studios',
-    subtitle: 'Professional photography & videography services.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Studios', 800),
-    link: '/snap-print',
+    title: 'Traditional Crafts',
+    subtitle: 'Authentic traditional craftsmanship and designs.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Traditional', 800),
+    link: '/products?category=Traditional+products',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
-    title: 'Space Design',
-    subtitle: 'Interior design and business consulting solutions.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Design', 600),
-    link: '/design',
+    title: 'Premium Collections',
+    subtitle: 'Curated collections of our finest products.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Collection', 600),
+    link: '/products?category=Premium+Collections',
     btnBg: 'bg-white text-[#2A1C22]',
   },
 ];
@@ -41,13 +41,13 @@ const ProductCategories: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
           <span className="text-xs font-bold text-[#C79A56] uppercase tracking-[0.2em] block mb-1.5">
-            ALCA MULTI-BUSINESS PLATFORM
+            ALCA PRODUCT PLATFORM
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#5C2333]">
-            Explore Our Core Businesses
+            Explore Our Product Categories
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 font-light mt-1 max-w-lg mx-auto">
-            Discover our diverse range of premium services, from catering and event planning to photography and enterprise solutions.
+            Discover our diverse range of premium products, from traditional crafts to exclusive collections and handcrafted items.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ const ProductCategories: React.FC = () => {
             </div>
           </div>
 
-          {/* 4. Fragrance Collection (Mobile: Bottom Right | Desktop: Right Column) */}
+          {/* 4. Premium Collection (Mobile: Bottom Right | Desktop: Right Column) */}
           <div
             onClick={() => navigate(categoryTiles[2].link)}
             className="col-span-1 lg:col-start-9 lg:col-span-4 lg:row-start-1 lg:row-span-2 h-56 sm:h-72 lg:h-[500px] rounded-2xl lg:rounded-3xl overflow-hidden relative group cursor-pointer shadow-md border border-[#E6DACB]"
