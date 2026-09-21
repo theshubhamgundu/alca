@@ -25,6 +25,9 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isSidebarOpen, toggleSideba
   const dispatch = useDispatch();
   const selectedBusinessId = useSelector((state: RootState) => state.adminBusiness.selectedBusinessId);
 
+  const businessesData = { businesses: [] }; // Mocked
+  const isLoading = false; // Mocked
+  
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
     sessionStorage.removeItem('vh_admin_auth');

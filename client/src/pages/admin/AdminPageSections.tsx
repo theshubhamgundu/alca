@@ -24,6 +24,7 @@ const AdminPageSections: React.FC = () => {
   const [editingSection, setEditingSection] = useState<Partial<PageSection> | null>(null);
   const [jsonContent, setJsonContent] = useState('{}');
 
+  const businessesData = { businesses: [] }; // Mocked
   const selectedBusiness = businessesData?.businesses?.find(b => b.id === selectedBusinessId);
 
   const handleAddNew = () => {
