@@ -47,8 +47,13 @@ const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
 const MyOrders = lazy(() => import('./pages/MyOrders'));
 const OrderDetails = lazy(() => import('./pages/OrderDetails'));
 const TrackShipment = lazy(() => import('./pages/TrackShipment'));
+const ALCAHomePage = lazy(() => import('./pages/ALCAHomePage'));
 const CateringPage = lazy(() => import('./pages/CateringPage'));
 const CelebrationsPage = lazy(() => import('./pages/CelebrationsPage'));
+const CraftsGiftsPage = lazy(() => import('./pages/CraftsGiftsPage'));
+const DesignerStudioPage = lazy(() => import('./pages/DesignerStudioPage'));
+const MakeupBeautyPage = lazy(() => import('./pages/MakeupBeautyPage'));
+const SupplyPage = lazy(() => import('./pages/SupplyPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFound'));
 
 const App: React.FC = () => {
@@ -60,8 +65,22 @@ const App: React.FC = () => {
                 <Router>
                     <Suspense fallback={<Loader />}>
                         <Routes>
-                            {/* Public routes */}
-                            <Route path="/" element={<Layout />}>
+                            {/* ALCA landing-page collection. Kept outside the Julina shop layout. */}
+                            <Route path="/alca" element={<ALCAHomePage />} />
+                            <Route path="/celebrations" element={<CelebrationsPage />} />
+                            <Route path="/catering" element={<CateringPage />} />
+                            <Route path="/crafts" element={<CraftsGiftsPage />} />
+                            <Route path="/crafts-gifts" element={<CraftsGiftsPage />} />
+                            <Route path="/designer-studio" element={<DesignerStudioPage />} />
+                            <Route path="/beauty" element={<MakeupBeautyPage />} />
+                            <Route path="/makeup-beauty" element={<MakeupBeautyPage />} />
+                            <Route path="/supply" element={<SupplyPage />} />
+
+                            {/* ALCA is the public landing homepage. */}
+                            <Route path="/" element={<ALCAHomePage />} />
+
+                            {/* Original Julina storefront remains available under /shop. */}
+                            <Route path="/shop" element={<Layout />}>
                                 <Route index element={<HomePage />} />
                                 <Route path="about" element={<AboutPage />} />
                                 <Route path="products" element={<ProductsPage />} />
@@ -74,11 +93,8 @@ const App: React.FC = () => {
                                 <Route path="refund-policy" element={<RefundPolicy />} />
                                 <Route path="cart" element={<CartPage />} />
                                 <Route path="my-orders" element={<MyOrders />} />
-                                <Route path="/order/:id" element={<OrderDetails />} />
+                                <Route path="order/:id" element={<OrderDetails />} />
                                 
-                                {/* Business Pages */}
-                                <Route path="catering" element={<CateringPage />} />
-                                <Route path="celebrations" element={<CelebrationsPage />} />
                             </Route>
 
                             <Route path="shipping" element={<Shipping />} />
