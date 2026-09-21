@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePageSEO } from '../hooks/usePageSEO';
-import { webPageSchema } from '../seo/schemas';
-import { FaArrowLeft, FaPhone, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaArrowLeft, FaPhone, FaWhatsapp } from 'react-icons/fa';
 
 const MakeupBeautyPage: React.FC = () => {
   const navigate = useNavigate();
