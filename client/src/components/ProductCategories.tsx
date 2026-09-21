@@ -4,31 +4,31 @@ import { optimizeCloudinaryUrl } from '../utils/cloudinaryOptimize';
 
 const categoryTiles = [
   {
-    title: 'Festive premium products',
-    subtitle: 'Traditional hand-crafted peacock & lotus premiums.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 800),
-    link: '/products?category=Festive%20premium%20products',
+    title: 'Premium Catering',
+    subtitle: 'Delicious Veg & Non-Veg Menus tailored for your events.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Catering', 800),
+    link: '/catering',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
-    title: 'New Arrivals',
-    subtitle: 'Exquisite lotus pond & exclusive jar creations.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 600),
-    link: '/products',
+    title: 'Magical Celebrations',
+    subtitle: 'End-to-end event planning & execution.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Events', 600),
+    link: '/celebrations',
     btnBg: 'bg-[#1f5133] text-white',
   },
   {
-    title: 'Fragrance Collection',
-    subtitle: 'Captivating coffee & floral product aromatics.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 800),
-    link: '/products?category=Fragrances',
+    title: 'Snap & Print Studios',
+    subtitle: 'Professional photography & videography services.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Studios', 800),
+    link: '/snap-print',
     btnBg: 'bg-white text-[#2A1C22]',
   },
   {
-    title: 'Artisanal Collection',
-    subtitle: 'Atmosphere-enhancing modak & dessert wax products.',
-    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Product', 600),
-    link: '/products',
+    title: 'Space Design',
+    subtitle: 'Interior design and business consulting solutions.',
+    img: optimizeCloudinaryUrl('https://placehold.co/600x600/185e33/FFF?text=ALCA+Design', 600),
+    link: '/design',
     btnBg: 'bg-white text-[#2A1C22]',
   },
 ];
@@ -41,13 +41,13 @@ const ProductCategories: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
           <span className="text-xs font-bold text-[#C79A56] uppercase tracking-[0.2em] block mb-1.5">
-            ARTISANAL hand-crafted CREATIONS
+            ALCA MULTI-BUSINESS PLATFORM
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#5C2333]">
-            Featured Collections & Categories
+            Explore Our Core Businesses
           </h2>
           <p className="text-xs sm:text-sm text-gray-500 font-light mt-1 max-w-lg mx-auto">
-            Discover our hand-crafted high-quality collections crafted to complement your home ambiance.
+            Discover our diverse range of premium services, from catering and event planning to photography and enterprise solutions.
           </p>
         </div>
 

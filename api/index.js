@@ -1793,8 +1793,8 @@ export default async function handler(req, res) {
       const cleanEmail = String(email).trim().toLowerCase();
 
       // Default built-in admin credentials
-      const ADMIN_EMAIL = 'admin@ALCAproducts.in';
-      const DEFAULT_ADMIN_HASH = hashAdminPassword('ALCAproducts@2026');
+      const ADMIN_EMAIL = 'admin@alca.in';
+      const DEFAULT_ADMIN_HASH = hashAdminPassword('admin@2026');
       const providedPasswordHash = hashAdminPassword(password);
 
       let isAdminValid = false;
